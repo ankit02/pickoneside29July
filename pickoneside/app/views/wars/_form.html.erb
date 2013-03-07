@@ -1,0 +1,24 @@
+<%= form_for(@war) do |f| %>
+
+<table id = "warCreate">
+	<tr>
+		<td> <%= f.label :topic %> </td>
+		<td width = "30px"> </td>
+		<td> <%= f.text_field :topic %> </td>
+	</tr>
+
+	<tr>
+		<td> <%= f.label :description %> </td>
+		<td width = "30px"> </td>
+		<td> <%= f.text_area :description %> </td>
+	</tr>
+
+	<tr>
+		<td> <%= f.submit %> </td>
+		
+	</tr>	
+
+	<% end %>
+
+
+</table>
