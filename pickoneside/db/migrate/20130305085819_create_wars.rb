@@ -3,6 +3,7 @@ class CreateWars < ActiveRecord::Migration
     create_table :wars do |t|
 
     	t.string :topic
+    	
       t.timestamps
     end
   end

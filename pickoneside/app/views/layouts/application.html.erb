@@ -9,6 +9,13 @@
 <body>
 
 <%= yield %>
+<h6>
+	<% if logged_in? %>
+	<%= "Logged in as #{current_user.username}" %>
+	<% else %>
+	Logged out
+	<% end %>
+	</h6> 
 
 </body>
 </html>
