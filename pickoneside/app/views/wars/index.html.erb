@@ -1,0 +1,17 @@
+<h1> All Wars </h1>
+
+	<ul id = "wars">
+
+		<% @wars.each do |war| %>
+
+		<li>
+			<%= link_to war.topic, war_path(war) %>
+		</li>
+
+
+		<% end %>
+
+		
+			<%= link_to "Create a new war", new_war_path %>
+		
+	</ul>
