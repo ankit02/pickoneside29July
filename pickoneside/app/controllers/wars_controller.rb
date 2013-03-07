@@ -11,7 +11,7 @@ class WarsController < ApplicationController
 
 		#flash.notice = "War '#{@war.topic}' created successfully."
 
-		redirect_to war
+		redirect_to war_path(@war)
 		
 	end
 
@@ -21,7 +21,7 @@ class WarsController < ApplicationController
 	end
 
 	def show
-		@war = War.find(params[:war])
+		@war = War.find(params[:id])
 
 	end
 end
