@@ -4,6 +4,12 @@ Pickoneside::Application.routes.draw do
 
   resources :wars
 
+  resources :user_sessions, only: [:new, :create, :destroy]
+
+  match 'login' => 'user_sessions#new'
+
+  match 'logout' => 'user_sessions#destroy'
+
   
 
   # The priority is based upon order of creation:
