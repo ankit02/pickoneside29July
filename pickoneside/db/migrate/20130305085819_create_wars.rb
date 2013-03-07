@@ -4,6 +4,7 @@ class CreateWars < ActiveRecord::Migration
 
     	t.string :topic
     	
+
       t.timestamps
     end
   end
