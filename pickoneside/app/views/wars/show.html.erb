@@ -1,1 +1,24 @@
-<%= @war.topic %> created successfully
+<table id = "warView">
+	<tr>
+		<td>  Topic  </td>
+		<td width = "30px"> </td>
+		<td> <%= @war.topic %> </td>
+	</tr>
+
+	<tr>
+		<td> Description </td>
+		<td width = "30px"> </td>
+		<td> <%= @war.description %> </td>
+	</tr>
+
+	<tr>
+		<td>
+		<%= link_to 'Edit', edit_war_path(@war) %>
+		</td>
+		<td>
+		<%= link_to 'Delete', war_path(@war), method: :delete, confirm: "Are you sure?" %>
+		</td>
+	</tr>	
+	</table >
+
+	
