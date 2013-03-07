@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307061654) do
+ActiveRecord::Schema.define(:version => 20130307111013) do
 
   create_table "categories", :force => true do |t|
     t.string   "topic"
@@ -23,18 +23,31 @@ ActiveRecord::Schema.define(:version => 20130307061654) do
     t.string   "comment"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "war_id"
+    t.integer  "user_id"
   end
+
+  add_index "comments", ["user_id"], :name => "comments_user_id_fk"
+  add_index "comments", ["war_id"], :name => "comments_war_id_fk"
 
   create_table "hits", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "war_id"
   end
+
+  add_index "hits", ["user_id"], :name => "hits_user_id_fk"
+  add_index "hits", ["war_id"], :name => "hits_war_id_fk"
 
   create_table "options", :force => true do |t|
     t.string   "option"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "war_id"
   end
+
+  add_index "options", ["war_id"], :name => "options_war_id_fk"
 
   create_table "users", :force => true do |t|
     t.string   "username",         :null => false
@@ -48,13 +61,34 @@ ActiveRecord::Schema.define(:version => 20130307061654) do
   create_table "votings", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "option_id"
+    t.integer  "user_id"
   end
+
+  add_index "votings", ["option_id"], :name => "votings_option_id_fk"
+  add_index "votings", ["user_id"], :name => "votings_user_id_fk"
 
   create_table "wars", :force => true do |t|
     t.string   "topic"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "description"
+    t.integer  "category_id"
   end
+
+  add_index "wars", ["category_id"], :name => "wars_category_id_fk"
+
+  add_foreign_key "comments", "users", :name => "comments_user_id_fk"
+  add_foreign_key "comments", "wars", :name => "comments_war_id_fk"
+
+  add_foreign_key "hits", "users", :name => "hits_user_id_fk"
+  add_foreign_key "hits", "wars", :name => "hits_war_id_fk"
+
+  add_foreign_key "options", "wars", :name => "options_war_id_fk"
+
+  add_foreign_key "votings", "options", :name => "votings_option_id_fk"
+  add_foreign_key "votings", "users", :name => "votings_user_id_fk"
+
+  add_foreign_key "wars", "categories", :name => "wars_category_id_fk"
 
 end
