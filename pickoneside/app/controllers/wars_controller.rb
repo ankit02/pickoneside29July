@@ -1,5 +1,7 @@
 class WarsController < ApplicationController
 
+	include ActiveModel::MassAssignmentSecurity
+
 	def index 
 		@wars = War.all	
 	end
@@ -8,6 +10,25 @@ class WarsController < ApplicationController
 		@war = War.new(params[:war])
 
 		@war.save
+
+		#@option = Option.new(params[:options])
+
+		#@option.save
+
+		#opt = @war.options
+
+		#foo = opt.split(',')
+
+		#i = 0
+
+		#for i in 0..foo.length
+
+			#opt = Option.new
+			#opt.option = foo[i]
+
+			#opt.save
+			
+		#end		
 
 		#flash.notice = "War '#{@war.topic}' created successfully."
 
@@ -18,6 +39,7 @@ class WarsController < ApplicationController
 	def new
 		@war = War.new 
 		@categories = Category.all
+		@options = Option.new
 
 	end
 
@@ -29,6 +51,7 @@ class WarsController < ApplicationController
 	def edit
 		@war = War.find(params[:id])
 		@categories = Category.all
+		@options = Option.new
 	end
 
 	def update
