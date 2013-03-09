@@ -8,7 +8,8 @@ class WarsController < ApplicationController
 
 	def create
 		@war = War.new(params[:war])
-
+		@user= User.find(current_user.id)
+		@war.user_id = @user.id
 		@war.save
 
 		#@option = Option.new(params[:options])
@@ -45,6 +46,15 @@ class WarsController < ApplicationController
 
 	def show
 		@war = War.find(params[:id])
+		@comment = Comment.new
+		@comment.war_id = @war.id
+		if logged_in? 
+		
+		@user = User.find(current_user.id)
+		
+		@comment.user_id = @user.id
+		end
+
 
 	end
 

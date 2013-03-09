@@ -1,0 +1,12 @@
+<h3> Post a Comment </h3>
+<%= form_for @comment do |f| %>
+  <%= f.hidden_field :war_id %>
+  <%= f.hidden_field :user_id %>
+  <p>
+    <%= f.label :comment %><br/>
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

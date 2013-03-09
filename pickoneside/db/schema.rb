@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307111013) do
+ActiveRecord::Schema.define(:version => 20130309070813) do
 
   create_table "categories", :force => true do |t|
     t.string   "topic"
@@ -74,9 +74,11 @@ ActiveRecord::Schema.define(:version => 20130307111013) do
     t.datetime "updated_at",  :null => false
     t.string   "description"
     t.integer  "category_id"
+    t.integer  "user_id"
   end
 
   add_index "wars", ["category_id"], :name => "wars_category_id_fk"
+  add_index "wars", ["user_id"], :name => "wars_user_id_fk"
 
   add_foreign_key "comments", "users", :name => "comments_user_id_fk"
   add_foreign_key "comments", "wars", :name => "comments_war_id_fk"
@@ -90,5 +92,6 @@ ActiveRecord::Schema.define(:version => 20130307111013) do
   add_foreign_key "votings", "users", :name => "votings_user_id_fk"
 
   add_foreign_key "wars", "categories", :name => "wars_category_id_fk"
+  add_foreign_key "wars", "users", :name => "wars_user_id_fk"
 
 end

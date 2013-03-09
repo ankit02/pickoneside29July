@@ -10,6 +10,8 @@ Pickoneside::Application.routes.draw do
 
   match 'logout' => 'user_sessions#destroy'
 
+  resources :comments
+
   
 
   # The priority is based upon order of creation:
