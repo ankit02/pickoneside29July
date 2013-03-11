@@ -7,29 +7,39 @@ class WarsController < ApplicationController
 	end
 
 	def create
+		#debugger
+
 		@war = War.new(params[:war])
 		@user= User.find(current_user.id)
 		@war.user_id = @user.id
 		@war.save
 
-		#@option = Option.new(params[:options])
+		#session[:abc] = 
+		#opt = @options.option
+
+		#@option = Option.new(params[:options_test])
+
+		@option_comma = params[:war][:options_test]
 
 		#@option.save
 
 		#opt = @war.options
 
-		#foo = opt.split(',')
+		foo = @option_comma.split(',')
 
-		#i = 0
+		i = 0
+
+		foo.each do |optionObj|
 
 		#for i in 0..foo.length
 
-			#opt = Option.new
-			#opt.option = foo[i]
+			opt = Option.new
+			opt.option = optionObj.strip
+			opt.war_id = @war.id
 
-			#opt.save
+			opt.save
 			
-		#end		
+		end		
 
 		#flash.notice = "War '#{@war.topic}' created successfully."
 

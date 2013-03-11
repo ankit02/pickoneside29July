@@ -20,8 +20,23 @@
 	
 	<%= f.collection_select :category_id, @categories,:id, :topic %>
 	</td></tr>
+	<tr>
+		<td> <%= f.label :options_test %> </td>
+		<td width = "30px"> </td>
+		<td> <%= f.text_field :options_test %> </td>
+	</tr>
 
 	</table>
+
+	<%#=# fields_for @war.options do |oForm| %>
+	
+	<table>
+	<tr>
+ 	  <td> <%#=# oForm.label :option, 'Add options for polling' %> </td>
+  	 <td> <%#=# oForm.text_field :option %> </td>
+	</tr>
+	</table>
+ 	<%# end %>
 
 	
 	<table>

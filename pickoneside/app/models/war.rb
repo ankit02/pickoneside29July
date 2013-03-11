@@ -1,7 +1,7 @@
 class War < ActiveRecord::Base
-  attr_accessible :topic, :description, :category_id, :option_ids
+  attr_accessible :topic, :description, :category_id, :options_test
 
-
+  attr_accessor :options_test
   
   belongs_to :category
   belongs_to :user
@@ -10,6 +10,15 @@ class War < ActiveRecord::Base
   has_many :comments
   has_many :hits
 
-  accepts_nested_attributes_for :options
+  auto_strip_attributes :topic, :description, :options_test
+
+  #before_validation :strip_whitespace, :only => [:topic, :description, :options_test]
+
+  #private
+  #	def strip_whitespace(value)
+   # 	value.responds_to?('strip') ? value.strip : value
+  #end
+
+  #accepts_nested_attributes_for :options
 
 end
