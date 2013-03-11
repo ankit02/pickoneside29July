@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
 
-	
-
 	def create
 
 		war_id = params[:comment].delete(:war_id)

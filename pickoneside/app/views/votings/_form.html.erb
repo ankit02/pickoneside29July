@@ -1,0 +1,26 @@
+<h3> Please Vote </h3>
+<%= form_for @voting do |fo| %>
+	
+	<%= fo.hidden_field :option_id %>
+  	<%= fo.hidden_field :user_id %>
+  	<p>
+  		<table>
+  		<% @options.all.each do |o| %>
+  		<tr>
+  		 <td> <%= fo.radio_button :option_id, o.id %> </td>
+  		  <td> <%= fo.label :option_id, o.option %> </td> 
+
+  		  <td width = "20px"></td>
+  		 <td> (<%= Voting.where("option_id = ?", o.id).count %> / <%= @totalVotes %>) </td>
+
+  		 </tr>
+  		<tr></tr>
+		<% end %>
+		<table>
+    
+  	</p>
+  	<p>
+    	<%= fo.submit 'Vote' %>
+  	</p>
+  	
+<% end %>

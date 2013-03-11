@@ -13,25 +13,13 @@ class WarsController < ApplicationController
 		@user= User.find(current_user.id)
 		@war.user_id = @user.id
 		@war.save
-
 		#session[:abc] = 
-		#opt = @options.option
-
-		#@option = Option.new(params[:options_test])
 
 		@option_comma = params[:war][:options_test]
 
-		#@option.save
-
-		#opt = @war.options
-
 		foo = @option_comma.split(',')
 
-		i = 0
-
 		foo.each do |optionObj|
-
-		#for i in 0..foo.length
 
 			opt = Option.new
 			opt.option = optionObj.strip
@@ -58,14 +46,21 @@ class WarsController < ApplicationController
 		@war = War.find(params[:id])
 		@comment = Comment.new
 		@comment.war_id = @war.id
-		if logged_in? 
 		
-		@user = User.find(current_user.id)
-		
-		@comment.user_id = @user.id
+		@voting = Voting.new
+
+		@options = @war.options
+
+		@totalVotes = 0
+		@options.all.each do |o|
+			@totalVotes = @totalVotes + Voting.where("option_id = ?", o.id).count	
 		end
 
-
+		if logged_in? 
+			@user = User.find(current_user.id)
+			@comment.user_id = @user.id
+			@voting.user_id = @user.id
+		end
 	end
 
 	def edit

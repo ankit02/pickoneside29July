@@ -36,9 +36,20 @@
 		</td>
 	</tr>	
 
+	<tr height = "40px"> </tr>
+
 	<tr>
 		<% if logged_in? %>
 		<td> <%= render partial: 'comments/form' %> </td>
+		<% end %>	
+	</tr>
+
+	<tr height = "40px">	
+	</tr>
+
+	<tr>
+		<% if logged_in? %>
+		<td> <%= render partial: 'votings/form' %> </td>
 		<% end %>	
 	</tr>
 	</table >
