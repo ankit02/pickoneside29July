@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(:version => 20130312092005) do
 
   create_table "categories", :force => true do |t|
     t.string   "topic"
-    t.integer  "war_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -102,7 +101,6 @@ ActiveRecord::Schema.define(:version => 20130312092005) do
   add_foreign_key "votings", "options", :name => "votings_option_id_fk"
   add_foreign_key "votings", "users", :name => "votings_user_id_fk"
 
-  add_foreign_key "wars", "categories", :name => "wars_category_id_fk"
   add_foreign_key "wars", "users", :name => "wars_user_id_fk"
 
 end
