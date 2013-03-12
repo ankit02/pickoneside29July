@@ -1,6 +1,6 @@
 class RemoveUser < ActiveRecord::Migration
   def up
-  	drop_table :users
+  	#drop_table :users
   end
 
   def down
