@@ -11,7 +11,7 @@
 
 		<% end %>
 
-			<% if logged_in? %>
+			<% if user_signed_in? %>
 			<%= link_to "Create a new war", new_war_path %>
 			<% end %>
 	</ul>

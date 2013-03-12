@@ -27,6 +27,8 @@
 	</tr>
 	<tr height = "50px"> </tr>
 
+	<% if user_signed_in? %>
+	<% if @user.id == @war.user_id %>
 	<tr>
 		<td>
 		<%= link_to 'Edit', edit_war_path(@war) %>
@@ -35,11 +37,13 @@
 		<%= link_to 'Delete', war_path(@war), method: :delete, confirm: "Are you sure?" %>
 		</td>
 	</tr>	
+	<% end %>
+	<% end %>
 
 	<tr height = "40px"> </tr>
 
 	<tr>
-		<% if logged_in? %>
+		<% if user_signed_in? %>
 		<td> <%= render partial: 'comments/form' %> </td>
 		<% end %>	
 	</tr>
@@ -48,7 +52,7 @@
 	</tr>
 
 	<tr>
-		<% if logged_in? %>
+		<% if user_signed_in? %>
 		<td> <%= render partial: 'votings/form' %> </td>
 		<% end %>	
 	</tr>

@@ -1,18 +1,22 @@
 Pickoneside::Application.routes.draw do
 
-  resources :users
+  devise_for :users
+
+  #resources :users
 
   resources :wars
 
-  resources :user_sessions, only: [:new, :create, :destroy]
+  #resources :user_sessions, only: [:new, :create, :destroy]
 
-  match 'login' => 'user_sessions#new'
+  #match 'login' => 'user_sessions#new'
 
-  match 'logout' => 'user_sessions#destroy'
+  #match 'logout' => 'user_sessions#destroy'
 
   resources :comments
 
   resources :votings
+
+  #match "users/registration/sign_up" => "devise/registrations#new", :as => 'user_registration'
 
   
 
@@ -65,7 +69,7 @@ Pickoneside::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'wars#index'
 
   # See how all your routes lay out with "rake routes"
 

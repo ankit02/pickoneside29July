@@ -2,6 +2,8 @@ class WarsController < ApplicationController
 
 	include ActiveModel::MassAssignmentSecurity
 
+	before_filter :authenticate_user!, :except => [:show, :index]
+
 	def index 
 		@wars = War.all	
 	end
@@ -56,7 +58,7 @@ class WarsController < ApplicationController
 			@totalVotes = @totalVotes + Voting.where("option_id = ?", o.id).count	
 		end
 
-		if logged_in? 
+		if user_signed_in? 
 			@user = User.find(current_user.id)
 			@comment.user_id = @user.id
 			@voting.user_id = @user.id
