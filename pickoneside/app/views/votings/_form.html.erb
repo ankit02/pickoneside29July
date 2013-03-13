@@ -1,4 +1,4 @@
-<h3> Please Vote </h3>
+<h3> Poll Vault </h3>
 <%= form_for @voting do |fo| %>
 	
 	<%= fo.hidden_field :option_id %>
@@ -24,8 +24,13 @@
     
   	</p>
      <% if user_signed_in? %>
+     <% if @voted == false  %>
   	<p>
     	<%= fo.submit 'Vote' %>
   	</p>
+    <% else %>
+    You have already Voted!!!
   	<% end %>
+    <% end %>
+
 <% end %>
