@@ -38,7 +38,10 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
+gem 'bootstrap-sass'
 
 gem 'debugger'
+
+gem 'simple_form'
 
 gem 'devise','2.0.4'

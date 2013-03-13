@@ -11,10 +11,16 @@
 <body>
 	 <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
+	<header class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
+        </div>
+      </nav>
+    </header>
 
 
 
-     
 
 <h3><%=nav_link("All Wars", wars_path) %></h3>
 
