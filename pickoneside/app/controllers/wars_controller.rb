@@ -48,6 +48,7 @@ class WarsController < ApplicationController
 		@war = War.find(params[:id])
 		@comment = Comment.new
 		@comment.war_id = @war.id
+
 		
 		@voting = Voting.new
 
@@ -62,6 +63,15 @@ class WarsController < ApplicationController
 			@user = User.find(current_user.id)
 			@comment.user_id = @user.id
 			@voting.user_id = @user.id
+			@voted = false
+			@options.all.each do |oc|
+			@check = Voting.where("option_id = ?", oc.id)
+			@check = @check.where("user_id = ?", @user.id)
+			if not @check.empty?
+				@voted=true
+				break
+			end
+		end
 		end
 	end
 

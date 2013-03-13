@@ -7,7 +7,11 @@
   		<table>
   		<% @options.all.each do |o| %>
   		<tr>
+        <% if user_signed_in? %>
+        <% if @voted == false  %>
   		 <td> <%= fo.radio_button :option_id, o.id %> </td>
+       <% end %>
+       <% end %>
   		  <td> <%= fo.label :option_id, o.option %> </td> 
 
   		  <td width = "20px"></td>
@@ -19,8 +23,9 @@
 		<table>
     
   	</p>
+     <% if user_signed_in? %>
   	<p>
     	<%= fo.submit 'Vote' %>
   	</p>
-  	
+  	<% end %>
 <% end %>

@@ -1,5 +1,6 @@
 class VotingsController < ApplicationController
 
+
 	def create
 
 		#debugger
