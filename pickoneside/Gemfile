@@ -42,3 +42,5 @@ gem 'jquery-rails'
 gem 'debugger'
 
 gem 'devise','2.0.4'
+
+gem 'paperclip'

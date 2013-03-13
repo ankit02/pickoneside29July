@@ -1,6 +1,7 @@
 <table id = "Comments View">
 	
 	<tr>
+		<td><%= image_tag comment.user.profile_pic.url(:thumb) %></td>
 		<td><%= comment.user.username %> says </td>
 	</tr>
 	<tr>

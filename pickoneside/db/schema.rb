@@ -11,10 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312092005) do
+ActiveRecord::Schema.define(:version => 20130313110712) do
 
   create_table "categories", :force => true do |t|
     t.string   "topic"
+    t.integer  "war_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -50,19 +51,23 @@ ActiveRecord::Schema.define(:version => 20130312092005) do
   add_index "options", ["war_id"], :name => "options_war_id_fk"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "username",               :default => "", :null => false
+    t.string   "email",                    :default => "", :null => false
+    t.string   "encrypted_password",       :default => "", :null => false
+    t.string   "username",                 :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",            :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "profile_pic_file_name"
+    t.string   "profile_pic_content_type"
+    t.integer  "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -101,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20130312092005) do
   add_foreign_key "votings", "options", :name => "votings_option_id_fk"
   add_foreign_key "votings", "users", :name => "votings_user_id_fk"
 
+  add_foreign_key "wars", "categories", :name => "wars_category_id_fk"
   add_foreign_key "wars", "users", :name => "wars_user_id_fk"
 
 end
