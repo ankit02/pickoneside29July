@@ -22,15 +22,14 @@
     <li>
     <div class="dropdown">
     <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
-    Search
+    Search a War
     <b class="caret"></b>
     </a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    By Category
-    </ul>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    By Title
-    </ul>
+    <li><%= link_to('By Category', :search) %> <li>
+    
+    <li><%= link_to('By Topic', :search) %></li>
+   </ul>
     </div>
   </li>
     

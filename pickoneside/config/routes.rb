@@ -4,13 +4,15 @@ Pickoneside::Application.routes.draw do
 
   #resources :users
 
-  resources :wars
+  resources :wars, only: [:index, :create, :new, :show, :edit, :update, :destroy ]
 
   #resources :user_sessions, only: [:new, :create, :destroy]
 
   #match 'login' => 'user_sessions#new'
 
   #match 'logout' => 'user_sessions#destroy'
+
+  match "/layouts/_navigation" => 'wars#search', :as => 'search'
 
   resources :comments
 
