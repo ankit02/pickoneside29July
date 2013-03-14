@@ -9,7 +9,8 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 
-  <div><%= f.file_field :profile_pic %>
+  <div><%= image_tag @user.profile_pic.url(:thumb) %><br />
+    <%= f.file_field :profile_pic %>
   </div>
 
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />

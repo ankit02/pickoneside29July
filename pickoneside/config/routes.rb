@@ -22,7 +22,11 @@ Pickoneside::Application.routes.draw do
 
   #match "users/registration/sign_up" => "devise/registrations#new", :as => 'user_registration'
 
-  
+  #resources :users, only: [:show], :as => 'user_show'
+
+  match "layouts/application" => "users#show", :as => 'user_show'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
