@@ -18,8 +18,20 @@
     <%= link_to('Sign up', new_user_registration_path)  %>
     </li>
   <% end %>
-  <li>
-    <%= link_to('Search', root_path) %>
-    </li>
+  
+    <li>
+    <div class="dropdown">
+    <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
+    Search
+    <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    By Category
+    </ul>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    By Title
+    </ul>
+    </div>
+  </li>
     
 </ul>
