@@ -101,4 +101,11 @@ class WarsController < ApplicationController
 		redirect_to wars_path
 	end
 
+	def search
+
+
+
+	end
+
+
 end
