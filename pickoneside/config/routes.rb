@@ -18,6 +18,8 @@ Pickoneside::Application.routes.draw do
 
   resources :votings
 
+  #match "/wars/search" => 'wars#searchAction', :as => 'searchAction'
+
   #match "users/registration/sign_up" => "devise/registrations#new", :as => 'user_registration'
 
   
