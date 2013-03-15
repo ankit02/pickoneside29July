@@ -1,19 +1,32 @@
 <%= link_to "Home", root_path, :class => 'brand' %>
 <ul class="nav">
   <% if user_signed_in? %>
+  <li>
+    <div class="dropdown">
+    <a class="dropdown-toggle" id="dUser" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
+     <%= image_tag current_user.user_image %>
+    <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dUser">
+    
+    
+    <li><%= link_to "View Profile", :user_show %></li>
+     <li>
+    <%= link_to('Edit account', edit_user_registration_path) %>
+    </li>
     <li>
     <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
     </li>
+   
+   </ul>
+    </div>
+  </li>
+   
   <% else %>
     <li>
     <%= link_to('Login', new_user_session_path)  %>
     </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to('Edit account', edit_user_registration_path) %>
-    </li>
-  <% else %>
+  
     <li>
     <%= link_to('Sign up', new_user_registration_path)  %>
     </li>
