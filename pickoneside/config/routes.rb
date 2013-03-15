@@ -4,6 +4,8 @@ Pickoneside::Application.routes.draw do
 
   #resources :users
 
+  #match "/wars/search" => 'wars#search', :as => 'searchAction'
+
   resources :wars, only: [:index, :create, :new, :show, :edit, :update, :destroy ]
 
   #resources :user_sessions, only: [:new, :create, :destroy]
@@ -13,6 +15,8 @@ Pickoneside::Application.routes.draw do
   #match 'logout' => 'user_sessions#destroy'
 
   match "/layouts/_navigation" => 'wars#search', :as => 'search'
+
+
 
   resources :comments
 

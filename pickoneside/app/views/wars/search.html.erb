@@ -1,16 +1,32 @@
-<%= simple_form_for(@warSearch) do |f| %>
+<%= form_tag :search, :method => :get do %>
 
-	<table id = "search">
+<table id = "search">
 	<tr>
-		<td> <%= f.label :topic, 'Topic' %> </td>
+		<td> <%= label_tag :search, 'Topic' %> </td>
 		<td width = "30px"> </td>
-		<td> <%= f.text_field :topic %> </td>
+		<td><%= text_field_tag :search, params[:search] %> </td>
 	</tr>
+	<tr height = "100px"> <td>
+	<%= submit_tag "Search", :name => nil %>
+</td> <tr>
 
-	<tr>
-		<td></td>
-		<td width = "30px"> </td>
-		<td> <%= f.submit 'Search', :controller => "wars", :action => "searchAction" %> </td>
-	</tr>
+</table>
+
+<% if (@wars) %>
+  <% if (@wars.empty?) %>
+    <p>No wars found.</p>
+  <% else %>
+
+  	 <%= render :partial => 'wars/search_results' %>
+   <%# @wars.each do |war| %>  
+      <p><%#= label_tag war.topic %></p>
+    <%# end %>
+  <% end %>
+<% else %>
+   <p>Use the search form to search for a war.</p>
+<% end %>
+
 
 <% end %>
+
+

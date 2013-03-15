@@ -12,6 +12,10 @@ class War < ActiveRecord::Base
 
   auto_strip_attributes :topic, :description, :options_test
 
+  def self.search(search)
+  search.blank? ? [] : all(:conditions => ['topic LIKE ?', "%#{search.strip}%"])
+  end
+
   #before_validation :strip_whitespace, :only => [:topic, :description, :options_test]
 
   #private
