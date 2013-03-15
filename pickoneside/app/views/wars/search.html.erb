@@ -1,1 +1,16 @@
-shgdhsagdsjh
+<%= simple_form_for(@warSearch) do |f| %>
+
+	<table id = "search">
+	<tr>
+		<td> <%= f.label :topic, 'Topic' %> </td>
+		<td width = "30px"> </td>
+		<td> <%= f.text_field :topic %> </td>
+	</tr>
+
+	<tr>
+		<td></td>
+		<td width = "30px"> </td>
+		<td> <%= f.submit 'Search', :controller => "wars", :action => "searchAction" %> </td>
+	</tr>
+
+<% end %>

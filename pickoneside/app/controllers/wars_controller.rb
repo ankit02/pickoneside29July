@@ -102,8 +102,12 @@ class WarsController < ApplicationController
 	end
 
 	def search
+		@warSearch = War.new
 
+	end
 
+	def searchAction
+		@title = @warSearch.topic
 
 	end
 
