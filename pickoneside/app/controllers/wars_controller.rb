@@ -102,14 +102,29 @@ class WarsController < ApplicationController
 	end
 
 	def search
-		@warSearch = War.new
+		#@warSearch = War.new
 
+		@wars = War.search(params[:search])
+		
 	end
 
-	def searchAction
-		@title = @warSearch.topic
+	#def searchAction
+		
+		#@topicname = params[:search]		
+		#debugger
 
-	end
+			#@wars = War.where("topic like ?", "%#{params[:search]}%").to_sql
+			#@wars = War.search(params[:search])
+		#debugger
+
+		#redirect_to :back 
+
+		#respond_to do |format|
+     		 #format.html # index.html.erb
+     		# format.json  { render :json => @instructions }
+   		 #end
+
+	#end
 
 
 end
