@@ -9,7 +9,7 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 
-  <div><%= image_tag @user.profile_pic.url(:thumb) %><br />
+  <div><%= image_tag @user.user_image(:thumb) %><br />
     <%= f.file_field :profile_pic %>
   </div>
 

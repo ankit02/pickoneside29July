@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   # attr_accessible :title, :body
 
-  def user_image(size="small")
+  def user_image(size)
 	if profile_pic.present?
 		return profile_pic.url(size)
 	else
