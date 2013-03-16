@@ -3,14 +3,21 @@
   <% if user_signed_in? %>
   <li>
     <div class="dropdown">
+     
     <a class="dropdown-toggle" id="dUser" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
-     <%= current_user.username %><%= image_tag current_user.user_image(:small) %>
+    
+     <%= current_user.username %>
+     <%= image_tag current_user.user_image(:small) %>
+ 
     <b class="caret"></b>
+   
     </a>
+
+
     <ul class="dropdown-menu" role="menu" aria-labelledby="dUser">
     
     
-    <li><%= link_to "View Profile", :user_show %></li>
+    <li><%= link_to "View Profile", user_path(current_user) %></li>
      <li>
     <%= link_to('Edit account', edit_user_registration_path) %>
     </li>
