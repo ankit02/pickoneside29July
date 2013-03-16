@@ -1,11 +1,10 @@
 <table id = "Comments View">
 	
 	<tr>
-		<td><%= image_tag comment.user.profile_pic.url(:thumb) %></td>
-		<td><%= comment.user.username %> says </td>
-	</tr>
-	<tr>
-		<td><%= comment.comment %></td>
-	</tr>
+		<td><%= link_to image_tag(comment.user.user_image(:small)),user_path(comment.user) %></td>
+		<td><%= link_to comment.user.username, user_path(comment.user) %> says  
+		
+		<%= comment.comment %></td>
+	
 </table>
 
