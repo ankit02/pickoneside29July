@@ -8,12 +8,20 @@ Pickoneside::Application.routes.draw do
 
 
 
-  match "/layouts/_navigation" => 'wars#searchByCategory', :as => 'searchByCategory'
+  #match "/layouts/_navigation" => 'wars#searchByCategory', :as => 'searchByCategory'
 
-  match "/layouts/_navigation" => 'wars#search', :as => 'search'
+  #match "/layouts/_navigation" => 'wars#search', :as => 'search'
   
 
-  resources :wars
+
+  resources :wars do
+    collection do
+
+      get 'search'
+      get 'searchByCategory'
+
+    end
+  end
 
   #resources :user_sessions, only: [:new, :create, :destroy]
 
