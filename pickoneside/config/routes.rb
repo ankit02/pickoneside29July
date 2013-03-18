@@ -6,16 +6,20 @@ Pickoneside::Application.routes.draw do
 
   #match "/wars/search" => 'wars#search', :as => 'searchAction'
 
-  resources :wars, only: [:index, :create, :new, :show, :edit, :update, :destroy ]
+
+
+  match "/layouts/_navigation" => 'wars#searchByCategory', :as => 'searchByCategory'
+
+  match "/layouts/_navigation" => 'wars#search', :as => 'search'
+  
+
+  resources :wars
 
   #resources :user_sessions, only: [:new, :create, :destroy]
 
   #match 'login' => 'user_sessions#new'
 
   #match 'logout' => 'user_sessions#destroy'
-
-  match "/layouts/_navigation" => 'wars#search', :as => 'search'
-
 
 
   resources :comments

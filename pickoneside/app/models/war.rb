@@ -16,6 +16,11 @@ class War < ActiveRecord::Base
   search.blank? ? [] : all(:conditions => ['topic LIKE ?', "%#{search.strip}%"])
   end
 
+  def self.searchByCategory(searchByCategory)
+    #debugger
+  searchByCategory.blank? ? [] : all(:conditions => ['category_id = ?', searchByCategory])
+  end
+
   #before_validation :strip_whitespace, :only => [:topic, :description, :options_test]
 
   #private

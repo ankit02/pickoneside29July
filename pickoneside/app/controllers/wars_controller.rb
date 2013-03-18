@@ -108,6 +108,19 @@ class WarsController < ApplicationController
 		
 	end
 
+	def searchByCategory
+		#debugger
+		#@wars = War.searchByCategory(params[:searchByCategory])
+		if params[:post] == nil
+			
+		else
+			
+		@wars = War.searchByCategory(params[:post][:category_id])
+		#debugger
+	end
+		
+	end
+
 	#def searchAction
 		
 		#@topicname = params[:search]		
