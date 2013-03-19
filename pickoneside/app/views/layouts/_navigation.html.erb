@@ -1,7 +1,10 @@
 <%= link_to "Home", root_path, :class => 'brand' %>
+
+  <%= link_to "Create a new war", new_war_path, :class => 'brand' %>
+    
 <ul class="nav">
   <% if user_signed_in? %>
-  <li>
+  <li style ="margin-left:600px; float:right;">
     <div class="dropdown">
      
     <a class="dropdown-toggle" id="dUser" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
@@ -30,16 +33,16 @@
   </li>
    
   <% else %>
-    <li>
+    <li style ="margin-left:400px; float:right;">
     <%= link_to('Login', new_user_session_path)  %>
     </li>
   
-    <li>
+    <li style ="margin-left:200px; float:right;">
     <%= link_to('Sign up', new_user_registration_path)  %>
     </li>
   <% end %>
-  
-    <li>
+
+    <li style="margin-left:20px;">
     <div class="dropdown">
     <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
     Search a War
@@ -52,5 +55,5 @@
    </ul>
     </div>
   </li>
-    
+
 </ul>
