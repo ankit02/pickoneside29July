@@ -2,7 +2,7 @@ class WarsController < ApplicationController
 
 	include ActiveModel::MassAssignmentSecurity
 
-	before_filter :authenticate_user!, :except => [:show, :index]
+	before_filter :authenticate_user!, :except => [:show, :index, :search, :searchByCategory]
 
 	#def index 
 	#	show
