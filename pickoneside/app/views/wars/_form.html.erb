@@ -2,15 +2,15 @@
 
 <table id = "warCreate">
 	<tr>
-		<td> <%= f.label :topic %> </td>
+		<td width = "200px"> <%= f.label :topic %> </td>
 		<td width = "30px"> </td>
-		<td> <%= f.text_field :topic %> </td>
+		<td width = "500px"> <%= f.text_field :topic %> </td>
 	</tr>
 
 	<tr>
 		<td> <%= f.label :description %> </td>
 		<td width = "30px"> </td>
-		<td> <%= f.text_area :description %> </td>
+		<td> <%= f.text_area :description, :cols => 20, :rows => 10 %> </td>
 	</tr>
 
 	<tr>
