@@ -4,9 +4,10 @@ class WarsController < ApplicationController
 
 	before_filter :authenticate_user!, :except => [:show, :index]
 
-	def index 
-		@wars = War.all	
-	end
+	#def index 
+	#	show
+
+	#end
 
 	def create
 		#debugger
@@ -45,7 +46,12 @@ class WarsController < ApplicationController
 	end
 
 	def show
-		@war = War.find(params[:id])
+		if params[:id] == nil
+			@war = War.last
+			#debugger
+		else
+			@war = War.find(params[:id])
+		end
 		@comment = Comment.new
 		@comment.war_id = @war.id
 
