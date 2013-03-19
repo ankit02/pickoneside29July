@@ -12,7 +12,10 @@
 		<td width = "30px"> </td>
 		<td> <%= f.text_area :description, :cols => 20, :rows => 10 %> </td>
 	</tr>
-
+	<tr>
+		<td><%= image_tag @war.war_image(:thumb) %></td>
+		<td width = "30px"> </td>
+    	<td><%= f.file_field :war_pic %></td>
 	<tr>
 	<td> <%= f.label :category_id, 'Select Category' %> </td>
 		<td width = "30px"> </td>
