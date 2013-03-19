@@ -4,9 +4,18 @@
   <%= f.hidden_field :user_id %>
   <p>
     <%= f.label :comment %><br/>
-    <%= f.text_area :comment %>
+    <div> <%= f.text_area :comment %> </div>
   </p>
   <p>
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
+
+<!--
+<style type="text/css">
+textarea{
+	width: 660px; height: 112px;
+}
+</style>
+
+-->

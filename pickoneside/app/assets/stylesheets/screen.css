@@ -1,11 +1,22 @@
  body{
- color: red;
+ color: black;
 	font-family:"Times New Roman", Times, serif;
 	/*background-color: black;*/
 	/*background-image: url('/assets/bobo.jpeg');*/
 	background-color:#ccc;
 
 	padding-bottom: 50px;
-	padding-left:50px;
+	padding-left:70px;
 	padding-right: 50px;
  }
+
+ textarea{
+	width: 500px; height: 112px;
+}
+
+.heading{
+	font-family:"Times New Roman", Times, serif;
+	font-style: italic;
+	font-size: 20px;
+	color: green;
+}
