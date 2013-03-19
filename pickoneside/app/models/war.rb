@@ -6,11 +6,13 @@ class War < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 
-  has_many :options
-  has_many :comments
-  has_many :hits
+  has_many :options, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+  has_many :hits, :dependent => :destroy
 
   auto_strip_attributes :topic, :description, :options_test
+
+
 
   def self.search(search)
   search.blank? ? [] : all(:conditions => ['topic LIKE ?', "%#{search.strip}%"])

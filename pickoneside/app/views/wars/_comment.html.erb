@@ -5,6 +5,11 @@
 		<td><%= link_to comment.user.username, user_path(comment.user) %> says  
 		
 		<%= comment.comment %></td>
+		<td><% if user_signed_in? %>
+			<% if @user.id == @war.user_id or @user.id == comment.user.id %>
+			<%= link_to 'Delete', comment_path(comment), method: :delete, confirm: "Are you sure?" %></td>
+			<% end %>
+			<% end %>
 	
 </table>
 

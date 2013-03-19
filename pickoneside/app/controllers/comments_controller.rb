@@ -14,4 +14,14 @@ class CommentsController < ApplicationController
 		redirect_to war_path(@comment.war)
 		
 	end
+
+	def destroy
+		@comment = Comment.find(params[:id])
+
+		@comment.destroy
+
+		flash.notice = "Comment destroyed..!!"
+
+		redirect_to war_path(@comment.war)
+	end
 end
