@@ -2,7 +2,10 @@
  color: red;
 	font-family:"Times New Roman", Times, serif;
 	/*background-color: black;*/
-	background-image: url('/assets/bobo.jpeg');
-	/*background-color:#ccc;1*/
+	/*background-image: url('/assets/bobo.jpeg');*/
+	background-color:#ccc;
 
+	padding-bottom: 50px;
+	padding-left:50px;
+	padding-right: 50px;
  }
