@@ -1,5 +1,5 @@
 class War < ActiveRecord::Base
-  attr_accessible :topic, :description, :category_id, :options_test
+  attr_accessible :topic, :description, :category_id, :options_test, :war_pic
 
   attr_accessor :options_test
   
@@ -12,6 +12,8 @@ class War < ActiveRecord::Base
 
   auto_strip_attributes :topic, :description, :options_test
 
+  has_attached_file :war_pic, :styles => {:thumb => "100X100>", :small => "40X40>"}, :default_url => 'assets/default_#{size}.jpg'
+
 
 
   def self.search(search)
@@ -22,6 +24,14 @@ class War < ActiveRecord::Base
     #debugger
   searchByCategory.blank? ? [] : all(:conditions => ['category_id = ?', searchByCategory])
   end
+
+  def war_image(size)
+  if war_pic.present?
+    return war_pic.url(size)
+  else
+    return "/assets/default_#{size}.jpg"
+  end
+end
 
   #before_validation :strip_whitespace, :only => [:topic, :description, :options_test]
 
