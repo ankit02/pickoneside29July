@@ -54,8 +54,8 @@ class WarsController < ApplicationController
 		end
 		@comment = Comment.new
 		@comment.war_id = @war.id
-
-		
+		@hit = Hit.new
+		@hit.war_id = @war.id
 		@voting = Voting.new
 
 		@options = @war.options
@@ -69,6 +69,7 @@ class WarsController < ApplicationController
 			@user = User.find(current_user.id)
 			@comment.user_id = @user.id
 			@voting.user_id = @user.id
+			@hit.user_id = @user.id
 			@voted = false
 			@options.all.each do |oc|
 			@check = Voting.where("option_id = ?", oc.id)
@@ -78,7 +79,10 @@ class WarsController < ApplicationController
 				break
 			end
 		end
+		
+
 		end
+		@hit.save
 	end
 
 	def edit

@@ -1,9 +1,27 @@
 <table id = "warView">
 
-	<tr> 
-		<h2 style = "text-align:center;font-style:italic"><%= @war.topic %></h2>
 
-	</tr>
+	<div style="margin-left:40%;">
+		<div class="dropdown" style = "font-style:italic,width:100px"><h4><%= @war.topic %>
+			<% if user_signed_in? %>
+			<% if @user.id == @war.user_id %> 
+			<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/wars/show.html">
+    <%= image_tag("/assets/setting_small.png") %>
+   
+    </a>
+   
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li><%= link_to('Edit', edit_war_path(@war)) %> <li>
+    
+    <li><%= link_to('Delete', war_path(@war), method: :delete, confirm: "Are you sure?") %></li>
+   </ul>
+		
+		<% end %>
+		<% end %>
+	</h4>
+	</div>
+		
+
 	<!--<tr>
 		<!-- <td>  Topic  </td> -->
 		<!--<td width = "30px"> </td>-->
@@ -16,12 +34,12 @@
 		<td> <%= @war.description %> </td>
 	</tr>-->
 
-	<tr> 
+	<tr height = "50px"> 
 		<h3 style = "text-align:center"><%= @war.description %></h2>
 
 	</tr>
-	<tr height="20px">
-		<td><%= image_tag @war.war_image(:thumb) %></td>
+	<tr>
+		<h4 style = "text-align:center"><%= image_tag @war.war_image(:thumb) %></h4>
 	</tr>
 
 	
@@ -42,21 +60,12 @@
 	
 	
 
-	<% if user_signed_in? %>
-	<% if @user.id == @war.user_id %>
-	<tr height = "90px">
-		<td>
-		<%= link_to 'Edit', edit_war_path(@war) %>
-		</td>
-		<td>
-		<%= link_to 'Delete', war_path(@war), method: :delete, confirm: "Are you sure?" %>
-		</td>
-	</tr>	
-	<% end %>
-	<% end %>	
+
 
 	<tr height = "20px"> </tr>
-
+	<tr>
+		<h5 style = "text-align:center">Views = <%= @war.hits.count %></h4>
+	</tr>
 	<tr>
 		<% if user_signed_in? %>
 		<td> <%= render partial: 'comments/form' %> </td>
