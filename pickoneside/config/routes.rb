@@ -14,14 +14,14 @@ Pickoneside::Application.routes.draw do
   
 
 
-  resources :wars do
+  resources :wars, except: [:index] do
     collection do
 
       get 'search'
       get 'searchByCategory'
 
     end
-  end
+  end 
 
   #resources :user_sessions, only: [:new, :create, :destroy]
 
