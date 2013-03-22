@@ -20,3 +20,7 @@
 	font-size: 20px;
 	color: green;
 }
+
+div.menu {
+	border:2px solid;
+}

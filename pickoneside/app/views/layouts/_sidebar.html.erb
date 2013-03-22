@@ -1,5 +1,5 @@
 
-<div id="menu" style="height:400px;width:150px;float:right;">
+<div id="menu" style="height:400px;width:150px;float:right;" >
 <b>Latest wars</b><br>
 
 <ul id = "wars">
@@ -10,6 +10,20 @@
 			<%= link_to war.topic, war_path(war) %>
 		</li>
 
+
+		<% end %>
+
+	</ul>
+
+<b>Hottest wars</b><br>
+
+<ul id = "warsHot">
+
+		<% @warsHot.each do |war| %>
+
+		<li>
+			<%= link_to war.topic, war_path(war) %>
+		</li>
 
 		<% end %>
 
