@@ -64,6 +64,7 @@ class WarsController < ApplicationController
 		@options.all.each do |o|
 			@totalVotes = @totalVotes + Voting.where("option_id = ?", o.id).count	
 		end
+	
 
 		if user_signed_in? 
 			@user = User.find(current_user.id)

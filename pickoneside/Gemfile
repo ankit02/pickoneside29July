@@ -52,5 +52,5 @@ gem 'paperclip'
 
 gem 'simple_form'
 
-
+gem "googlecharts", :require => "gchart"
 

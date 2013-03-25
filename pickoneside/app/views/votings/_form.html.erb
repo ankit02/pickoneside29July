@@ -1,11 +1,14 @@
+
 <h3> Poll Vault </h3>
 <%= form_for @voting do |fo| %>
 	
 	<%= fo.hidden_field :option_id %>
   	<%= fo.hidden_field :user_id %>
+    <% v=[],i=0 %>
   	<p>
   		<table>
   		<% @options.all.each do |o| %>
+      
   		<tr>
         <% if user_signed_in? %>
         <% if @voted == false  %>
@@ -14,15 +17,34 @@
        <% end %>
   		  <td> <%= fo.label :option_id, o.option %> </td> 
 
-  		  <td width = "20px"></td>
-  		 <td> (<%= Voting.where("option_id = ?", o.id).count %> / <%= @totalVotes %>) </td>
+        <% if @totalVotes != 0 %>
+  		  <td><% v[i] = Voting.where("option_id = ?", o.id).count %> 
+          <%#= v  %>
+          <%= @totalVotes  %>
+      <%# v1 = ((@totalVotes-v)*100)/@totalVotes %>
+      <% v[i] = (v[i]*100/@totalVotes) %>
+      
+      <%#= v %>
+      </td>
 
   		 </tr>
-  		<tr></tr>
+  		<% i = i + 1 %>
+      <% end %>
 		<% end %>
-		<table>
+    </table>
+
+    <% if @totalVotes != 0 %>
+    <% v.delete_at(i) %>
     
-  	</p>
+    <div> 
+     <p align="right">
+    <img src="<%= Gchart.pie_3d( :size => '600x300', :data => [v], :legend => @options.all.collect{|o| o.option}, :labels => v.collect{|v| v}
+    )%>"/>
+  </p>
+</div>
+<% end %>
+		
+      
      <% if user_signed_in? %>
      <% if @voted == false  %>
   	<p>
