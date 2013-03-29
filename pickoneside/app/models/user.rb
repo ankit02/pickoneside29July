@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :profile_pic, :provider, :uid
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :profile_pic, :provider, :uid, :fb_image
 
   has_attached_file :profile_pic, :styles => {:thumb => "100X100>", :small => "40X40>"}, :default_url => 'assets/default_#{size}.jpg'
 
@@ -15,8 +15,12 @@ class User < ActiveRecord::Base
 	if profile_pic.present?
 		return profile_pic.url(size)
 	else
+    if fb_image.present?
+      return fb_image
+    else
 		return "/assets/default_#{size}.jpg"
 	end
+end
 end
 
 def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
@@ -26,7 +30,7 @@ def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
                          provider:auth.provider,
                          uid:auth.uid,
                          email:auth.info.email,
-                         #profile_pic:auth.info.image.split("=")[0] << "=small",
+                         fb_image:auth.info.image,
                          password:Devise.friendly_token[0,20]
                          )
   end
