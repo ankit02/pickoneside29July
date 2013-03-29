@@ -13,14 +13,15 @@
         <% if user_signed_in? %>
         <% if @voted == false  %>
   		 <td> <%= fo.radio_button :option_id, o.id %> </td>
-       <% end %>
-       <% end %>
+       
   		  <td> <%= fo.label :option_id, o.option %> </td> 
+        <% end %>
+       <% end %>
 
         <% if @totalVotes != 0 %>
   		  <td><% v[i] = Voting.where("option_id = ?", o.id).count %> 
           <%#= v  %>
-          <%= @totalVotes  %>
+          <%#= @totalVotes  %>
       <%# v1 = ((@totalVotes-v)*100)/@totalVotes %>
       <% v[i] = (v[i]*100/@totalVotes) %>
       
@@ -32,6 +33,16 @@
       <% end %>
 		<% end %>
     </table>
+
+    <% if user_signed_in? %>
+     <% if @voted == false  %>
+    <p>
+      <%= fo.submit 'Vote' %>
+    </p>
+    <% else %>
+    You have already Voted!!!
+    <% end %>
+    <% end %>
 
     <% if @totalVotes != 0 %>
     <% v.delete_at(i) %>
@@ -45,14 +56,6 @@
 <% end %>
 		
       
-     <% if user_signed_in? %>
-     <% if @voted == false  %>
-  	<p>
-    	<%= fo.submit 'Vote' %>
-  	</p>
-    <% else %>
-    You have already Voted!!!
-  	<% end %>
-    <% end %>
+     
 
 <% end %>

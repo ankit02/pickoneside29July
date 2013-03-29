@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319111215) do
+ActiveRecord::Schema.define(:version => 20130326091806) do
 
   create_table "categories", :force => true do |t|
     t.string   "topic"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(:version => 20130319111215) do
     t.string   "profile_pic_content_type"
     t.integer  "profile_pic_file_size"
     t.datetime "profile_pic_updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -109,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20130319111215) do
   add_foreign_key "votings", "options", :name => "votings_option_id_fk"
   add_foreign_key "votings", "users", :name => "votings_user_id_fk"
 
+  add_foreign_key "wars", "categories", :name => "wars_category_id_fk"
   add_foreign_key "wars", "users", :name => "wars_user_id_fk"
 
 end
