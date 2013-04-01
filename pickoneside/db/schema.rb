@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(:version => 20130326091806) do
   add_foreign_key "votings", "options", :name => "votings_option_id_fk"
   add_foreign_key "votings", "users", :name => "votings_user_id_fk"
 
-  add_foreign_key "wars", "categories", :name => "wars_category_id_fk"
   add_foreign_key "wars", "users", :name => "wars_user_id_fk"
 
 end
