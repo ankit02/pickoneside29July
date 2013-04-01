@@ -25,6 +25,8 @@ end
 
 def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
   user = User.where(:provider => auth.provider, :uid => auth.uid).first
+  user.fb_image = auth.info.image
+  user.save
   unless user
     user = User.create(username:auth.extra.raw_info.name,
                          provider:auth.provider,
