@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326091806) do
+ActiveRecord::Schema.define(:version => 20130329064902) do
 
   create_table "categories", :force => true do |t|
     t.string   "topic"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20130326091806) do
     t.datetime "profile_pic_updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.string   "fb_image"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
