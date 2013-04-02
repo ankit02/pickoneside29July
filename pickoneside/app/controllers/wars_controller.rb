@@ -150,5 +150,7 @@ class WarsController < ApplicationController
 
 	#end
 
+	
+
 
 end

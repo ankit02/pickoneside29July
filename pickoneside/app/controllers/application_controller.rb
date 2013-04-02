@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_sidebar
 
 	def load_sidebar
-  		@wars = War.find(:all, :limit => 10,:order => 'created_at DESC')
+  		@warsLatestNav = War.find(:all, :limit => 10,:order => 'created_at DESC')
 
       @warsIds = Hit.find_by_sql ["SELECT war_id FROM hits group by 
         war_id order by count(war_id) desc limit 10"]
@@ -16,4 +16,5 @@ class ApplicationController < ActionController::Base
       end
 
 	end
+  
 end
