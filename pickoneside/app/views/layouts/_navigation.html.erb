@@ -1,6 +1,6 @@
 <div>
   <span style="float:left">
-  <%= link_to "Home", root_path, :class => 'brand' %>
+  <%#= link_to "Home", root_path, :class => 'brand' %>
 </span>
 
 <span style="float:left">
@@ -29,7 +29,10 @@
 
 </div>
 
- <span style='float:left;'><img src="/assets/header.png" style="height:50px;  "></span>
+
+<span style='padding-left:140px'>
+  <%= link_to image_tag("/assets/header.png", :border => 0, :size => "250x150" ), root_path %>
+</span>
 
 
 
