@@ -1,5 +1,127 @@
-<div id="menu" style="height:460px;width:170px;float:right; border:solid purple" >
-<b>Latest wars</b><br>
+
+<style type="text/css">
+body {
+	color:#333;
+	width:600px;
+	font-size:14px;
+	font-family:Verdana, Geneva, sans-serif;
+	margin:0 auto;
+	padding:0 100px;
+}
+a:focus {
+outline: none;
+}
+a.trigger{
+	position: absolute;
+	background:#88bbd4 url(images/plus.png) 6% 55% no-repeat;
+	text-decoration: none;
+	font-size: 16px;
+	letter-spacing:-1px;
+	font-family: verdana, helvetica, arial, sans-serif;
+	color:#fff;
+	padding:4px 12px 6px 24px;
+	font-weight: bold;
+	
+	z-index:2;
+}
+a.trigger.left {
+	left: 0;
+	top:600px;
+	border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+a.trigger.right {
+	right: 0;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+}
+a.trigger:hover {
+	background-color:#59B;
+}
+a.active.trigger {
+	background:#666 url(images/minus.png) 6% 55% no-repeat;
+}
+.panel {
+	color:#CCC;
+	position: absolute;
+	display: none;
+	background: #000000;
+	width: 300px;
+	height: auto;
+	z-index:1;
+	left: 100px;
+}
+.panel.left {
+	left: 0;
+	padding: 20px 30px 20px 100px;
+	border-top-right-radius: 15px;
+	-moz-border-radius-topright: 15px;
+	-webkit-border-top-right-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+.panel.right {
+	right: 0;
+	padding: 20px 100px 20px 30px;
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	-moz-border-radius-topleft: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-webkit-border-top-left-radius: 15px;
+}
+.panel p {
+	font-size:11px;
+}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/jquery.slidePanel.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// default settings
+	// $('.panel').slidePanel();
+	
+	// custom settings
+	$('#panel1').slidePanel({
+		triggerName: '#trigger1'
+		//position: 'fixed',
+		//triggerTopPos: '20px',
+		//panelTopPos: '10px'
+		//ajax: true
+		//ajaxSource: 'ajax.html'
+	});
+	$('#panel2').slidePanel({
+		triggerName: '#trigger2'
+		//position: 'fixed',
+		//triggerTopPos: '20px',
+		//panelTopPos: '10px'
+		//ajax: true
+		//ajaxSource: 'ajax.html'
+	});
+
+	
+
+});
+</script>
+
+
+
+<a href="#" id="trigger1" class="trigger left">Latest Wars</a>
+
+<div id="panel1" style="padding-top:20px;height:230px;width:170px;float:right;display:none; left:10px;
+background-color:black;margin-top:70px" >
+
 
 <ul id = "warsList">
 
@@ -12,8 +134,13 @@
 		<% end %>
 
 	</ul>
+	</div>
 
-<b>Hottest wars</b><br>
+<a href="#" id="trigger2" class="trigger right">Hottest Wars</a>
+	<div id="panel2" style="padding-top:20px;margin-top:70px;height:230px;width:170px;float:right;display:none; right:10px;
+background-color:black" >
+
+
 
 <ul id = "warsHotList">
 
@@ -27,3 +154,5 @@
 
 	</ul>
 </div>
+
+

@@ -2,7 +2,9 @@
  	color: white;
 	font-family:"Times New Roman", Times, serif;
 	/*background-color: black;*/
-	background-image: url('/assets/bgcloud2.jpg');
+
+	background-image: url('/assets/warplane.jpg');
+
 	/*background-position: center;*/
 	background-repeat: no-repeat;
 	background-color:#ccc;
