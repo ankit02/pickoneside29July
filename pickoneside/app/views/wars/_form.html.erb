@@ -1,6 +1,7 @@
 <%= simple_form_for(@war) do |f| %>
 
 <table id = "warCreate">
+	<tr height = "50px"> </tr>
 	<tr>
 		<td width = "200px"> <%= f.label :topic %> </td>
 		<td width = "30px"> </td>
@@ -24,7 +25,7 @@
 	<%= f.collection_select :category_id, @categories,:id, :topic %>
 	</td></tr>
 	<tr>
-		<td> <%= f.label :options_test %> </td>
+		<td> <%= f.label :options_test, "Options (Comma seperated)" %> </td>
 		<td width = "30px"> </td>
 		<td> <%= f.text_field :options_test %> </td>
 	</tr>
@@ -49,7 +50,3 @@
 	</tr>	
 	</table>
 	<% end %>
-
-	<p> sjdjsahdashdsak </p>
-
-
