@@ -18,6 +18,7 @@ class War < ActiveRecord::Base
 
   def self.search(search)
   search.blank? ? [] : all(:conditions => ['topic LIKE ?', "%#{search.strip}%"])
+  #War.paginate (:per_page => 2, :page => page)
   end
 
   def self.searchByCategory(searchByCategory)
@@ -31,6 +32,8 @@ class War < ActiveRecord::Base
   else
     return "/assets/default_#{size}.jpg"
   end
+
+
 end
 
   #before_validation :strip_whitespace, :only => [:topic, :description, :options_test]

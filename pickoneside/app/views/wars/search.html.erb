@@ -1,6 +1,7 @@
 <%= form_tag :search_wars, :method => :get do %>
 
 <table id = "search">
+  <tr height="60px"></tr>
 	<tr>
 		<td> <%= label_tag :search, 'Topic' %> </td>
 		<td width = "30px"> </td>
@@ -21,6 +22,7 @@
    <%# @wars.each do |war| %>  
       <p><%#= label_tag war.topic %></p>
     <%# end %>
+    <%= will_paginate @wars %>
   <% end %>
 <% else %>
    <p>Use the search form to search for a war.</p>

@@ -115,19 +115,23 @@ class WarsController < ApplicationController
 	def search
 		#@warSearch = War.new
 
-		@wars = War.search(params[:search])
+		#@wars = War.search(params[:search],params[:page])
+
+		@wars = War.paginate(:page => params[:page], :per_page => 8).search(params[:search])
 		
 	end
 
 	def searchByCategory
-		#debugger
-		#@wars = War.searchByCategory(params[:searchByCategory])
+
 		if params[:post] == nil
 			
 		else
 			
-		@wars = War.searchByCategory(params[:post][:category_id])
-		#debugger
+		#@wars = War.searchByCategory(params[:post][:category_id])
+
+		@wars = War.paginate(:page => params[:page], :per_page => 8).
+		searchByCategory(params[:post][:category_id])
+
 	end
 		
 	end

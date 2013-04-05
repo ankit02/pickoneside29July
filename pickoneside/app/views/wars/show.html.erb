@@ -1,7 +1,7 @@
 <table id = "warView">
 
 
-	<div style="margin-left:40%;">
+	<div style="margin-left:40%;padding-top:50px">
 		<div class="dropdown" style = "font-style:italic,width:100px"><h4><%= @war.topic %>
 			<% if user_signed_in? %>
 			<% if @user.id == @war.user_id %> 
@@ -38,11 +38,11 @@
 		<h3 style = "text-align:center"><%= @war.description %></h2>
 
 	</tr>
+	
 	<tr>
 		<h4 style = "text-align:center"><%= image_tag @war.war_image(:thumb) %></h4>
 	</tr>
-
-	
+		
 
 	<!--<tr>
 		<td> Category </td>
@@ -57,11 +57,6 @@
 		<td width = "30px"> </td>
 	</tr>
 	-->
-	
-	
-
-
-
 	<tr height = "20px"> </tr>
 	<tr>
 		<h5 style = "text-align:center">Views = <%= @war.hits.count %></h4>
