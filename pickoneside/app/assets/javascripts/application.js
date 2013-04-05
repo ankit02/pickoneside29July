@@ -16,13 +16,13 @@
 //= require_tree .
 
 
-jQuery(document).ready(function() {
-    jQuery("p").click(function() {
-        $(this).fadeTo(1000,.5);
-    }); 
+//jQuery(document).ready(function() {
+  //  jQuery("p").click(function() {
+  //      $(this).fadeTo(1000,.5);
+  //  }); 
 
-    jQuery("li#abcd").hover(function() {
-        $(this).fadeTo(1000,.5);
-    });
+  //  jQuery("li#abcd").hover(function() {
+  //      $(this).fadeTo(1000,.5);
+  //  });
     
-});
+//});

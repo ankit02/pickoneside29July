@@ -26,6 +26,7 @@
   <% else %>
 
   	 <%= render :partial => 'wars/search_results' %>
+     <%= will_paginate @wars %>
    <%# @wars.each do |war| %>  
       <p><%#= label_tag war.topic %></p>
     <%# end %>
