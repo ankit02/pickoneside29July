@@ -1,5 +1,5 @@
-<%= simple_form_for(@war) do |f| %>
-
+<%= form_for @war, :validate => true do |f| %>
+<%= f.error_messages %>
 <table id = "warCreate">
 	<tr height = "60px"> </tr>
 	<tr>
@@ -45,7 +45,7 @@
 	
 	<table>
 	<tr>
-		<td> <%= f.submit %> </td>
+		<td> <%= f.submit "Create" %> </td>
 		
 	</tr>	
 	</table>

@@ -33,9 +33,16 @@ class WarsController < ApplicationController
 		end		
 
 		#flash.notice = "War '#{@war.topic}' created successfully."
-
+		#respond_to do |format|
+		if @war.save
 		redirect_to war_path(@war)
-		
+		else
+			#@categories = Category.all
+		#render 'new'
+        #format.html { render action: "new" }
+        #format.json { render json: @war.errors, status: :unprocessable_entity }
+		#end
+		end
 	end
 
 	def new
@@ -109,7 +116,7 @@ class WarsController < ApplicationController
 
 		flash.notice = "War '#{@war.topic}' destroyed..!!"
 
-		redirect_to wars_path
+		redirect_to root_path
 	end
 
 	def search

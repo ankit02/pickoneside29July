@@ -37,6 +37,7 @@ GEM
     bootstrap-wysihtml5-rails (0.3.1.19)
       railties (>= 3.0)
     builder (3.0.4)
+    client_side_validations (3.2.5)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -61,6 +62,7 @@ GEM
       orm_adapter (~> 0.0.3)
       railties (~> 3.1)
       warden (~> 1.1.1)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -168,9 +170,11 @@ DEPENDENCIES
   auto_strip_attributes (~> 1.0)
   bootstrap-sass
   bootstrap-wysihtml5-rails
+  client_side_validations
   coffee-rails (~> 3.2.1)
   debugger
   devise (= 2.0.4)
+  dynamic_form
   foreigner
   googlecharts
   jquery-rails

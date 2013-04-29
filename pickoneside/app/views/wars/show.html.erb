@@ -1,3 +1,12 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=504323752911178";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <table id = "warView">
 
 
@@ -76,10 +85,11 @@
 
 		<tr height="30px"></tr>
 	<tr>
-		
+		<% if !@war.options.empty? %>
 		<td> <%= render partial: 'votings/form' %> </td>
-		
+		<% end %>
 	</tr>
+	<div class="fb-comments" data-href="" data-width="470" data-num-posts="2"></div>
 	</table >
 
 	
