@@ -43,10 +43,14 @@
 		</div>
 	</div>
 	<div class="span4">
-		<div class="row-fluid">
-			<%= render partial: 'votings/form' %> 
-		</div>
-		<br/>
+		<% if user_signed_in? or @totalVotes > 0  %>
+	
+				<div class="row-fluid">
+					<%= render partial: 'votings/form' %> 
+				</div>
+				<br/>
+		<% end %>
+		
 		<% if !@war.comments.empty? %>
 			<div class="box-it">
 					<div class="row-fluid">
