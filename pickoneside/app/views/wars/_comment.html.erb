@@ -1,15 +1,118 @@
-<table id = "Comments View">
-	
+
+<style>
+/*table.comments{
+	max-width:95% !important;
+	width:95% !important;
+	margin-bottom: 0px !important;
+}
+table.comments td{
+	border-top:0px !important;
+	padding:5px;
+}
+table.comments td.uimage{
+	width:20% !important;
+}
+td.uimage a img, div.uimage a img, td.uimage img, div.uimage img{
+	border-radius: 3px;
+}
+table.comments td.comment{
+	width:80% !important;
+	border-radius:20px;
+	vertical-align: middle; !important;
+	background-color: #444;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1a82f7), to(#2F2727));
+
+	  background: -webkit-linear-gradient(top, #000, #444);
+
+	  background: -moz-linear-gradient(top, #000, #444);
+
+	  background: -ms-linear-gradient(top, #000, #444, #000);
+
+	  background: -o-linear-gradient(top, #000, #444, #000);
+}*/
+
+div.uimage img{
+	border-radius: 3px;
+}
+
+.row-fluid [class*="span"] .uname{
+	min-height:0px;
+	margin-bottom: 0px;
+}
+.uname a{
+	font-weight:bold;
+}
+.uname a:hover{
+	text-decoration: none;
+}
+.comment-box{
+	padding:0px 5px 10px 5px;
+	border-radius:5px;
+	color:;
+}
+.comment{
+	text-align: justify;
+}
+</style>
+
+<!-- <table align="center" class="comments">
 	<tr>
-		<td><%= link_to image_tag(comment.user.user_image(:small)),user_path(comment.user) %></td>
-		<td><%= link_to comment.user.username, user_path(comment.user) %> says  
-		
-		<%= comment.comment %></td>
-		<td><% if user_signed_in? %>
-			<% if @user.id == @war.user_id or @user.id == comment.user.id %>
-			<%= link_to 'Delete', comment_path(comment), method: :delete, confirm: "Are you sure?" %></td>
-			<% end %>
-			<% end %>
-	
-</table>
+		<td class="uimage">
+				<a href="<%= user_path(comment.user) %>" data-placement="left" data-toggle="tooltip" title="<%= comment.user.username %>"> <img src="<%#= comment.user.user_image(:small) %>"></img> </a> 
+		</td>
+		<td>
+			<table>
+			<tr>
+				<td  class="uname">
+				<%= link_to comment.user.username, user_path(comment.user) %> says 
+				</td>
+				<td>  
+					<%# if user_signed_in? %>
+						<%# if @user.id == @war.user_id or @user.id == comment.user.id %>
+							<td class="">
+								<a href='<%= comment_path(comment) %>' rel="nofollow" data-confirm="Are You Sure?" data-method="<%#= :delete %>">
+									<i class="icon-trash"></i>
+								</a>
+							</td>
+						<%# end %>
+		  			<%# end %>
+				</td>
+			</tr>
+			<tr class="comment">
+					<%= comment.comment %>
+			</tr>
+		</table>
+		</td>
+ 	</tr>
+
+</table> -->
+
+	<div class="span12">
+		<div class="row-fluid">
+			<div class="span2 uimage">
+				<img src="<%= comment.user.user_image(:small) %>"></img>
+			</div>
+			<div class="span9 comment-box">
+				<div class="row-fluid">
+					<div class="uname">
+						<%= link_to comment.user.username, user_path(comment.user) %> says 
+					</div>
+					<div class="comment">
+			  			<%= comment.comment %>
+			  		</div>
+				</div>
+			</div>
+			<div class="span1">
+				<% if user_signed_in? %>
+					<% if @user.id == @war.user_id or @user.id == comment.user.id %>
+						<a href='<%= comment_path(comment) %>' rel="nofollow" data-confirm="Are You Sure?" data-method="<%= :delete %>">
+							<i class="icon-trash"></i>
+						</a>
+					<% end %>
+			  	<% end %>
+			</div>
+		</div>
+	</div>
+
+
 

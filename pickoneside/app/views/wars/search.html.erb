@@ -1,34 +1,28 @@
+<style>
+
+
+</style>
 <%= form_tag :search_wars, :method => :get do %>
+    <div  class="row-fluid" style="margin-left:25%;">
+      <div class="control-group">
+        <div class="control-label"><%= label_tag  'Topic' %>  
+        </div>
+        <div class="controls">     
+          <%= text_field_tag :search, params[:search] %> <%= submit_tag "Search", :name => nil, :style=>"margin-left:15px;" %>
+        </div>
+      </div>
+   </div>
 
-<table id = "search">
-  <tr height="60px"></tr>
-	<tr>
-		<td> <%= label_tag :search, 'Topic' %> </td>
-		<td width = "30px"> </td>
-		<td><%= text_field_tag :search, params[:search] %> </td>
-	</tr>
-	<tr height = "100px"> <td>
-	<%= submit_tag "Search", :name => nil %>
-</td> <tr>
-
-</table>
-
-<% if (@wars) %>
-  <% if (@wars.empty?) %>
-    <p>No wars found.</p>
-  <% else %>
-
-  	 <%= render :partial => 'wars/search_results' %>
-   <%# @wars.each do |war| %>  
-      <p><%#= label_tag war.topic %></p>
-    <%# end %>
-    <%= will_paginate @wars %>
-  <% end %>
-<% else %>
-   <p>Use the search form to search for a war.</p>
-<% end %>
-
-
+    <% if (@wars) %>
+      <% if (@wars.empty?) %>
+        <p style="text-align: center; padding: 5px;">No wars found.</p>
+      <% else %>
+    	 <%= render :partial => 'wars/search_results' %>
+          <%= will_paginate @wars %>
+      <% end %>
+      <% else %>
+         <p style="text-align: center; padding: 5px;">Use the search form to search for a war.</p>
+    <% end %>
 <% end %>
 
 

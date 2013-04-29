@@ -1,61 +1,49 @@
+<div class="row-fluid" id="#poll-vault">
 
-<h3> Poll Vault </h3>
-<%= form_for @voting do |fo| %>
-	
-	<%= fo.hidden_field :option_id %>
-  	<%= fo.hidden_field :user_id %>
-    <% v=[],i=0 %>
-  	<p>
-  		<table>
-  		<% @options.all.each do |o| %>
-      
-  		<tr>
+    <div class="box-it">
+      <div class = "heading"  style="text-align:center"> Poll Vault</div>
+    </div><br/>
+    <div class="box-it" align="center">
+    <%= form_for @voting do |fo| %>
+        <%= fo.hidden_field :option_id %>
+        <%= fo.hidden_field :user_id %>
+        <% v=[],i=0 %>
+        <div align="center" style="width:50%;">
+        	<% @options.all.each do |o| %>
+            <% if user_signed_in? %>
+              <% if @voted == false  %>
+              <%#= fo.radio_button :option_id, o.id %><%#= fo.label :option_id, o.option %>
+                <input type="radio" id="voting_option_id_<%= o.id %>" style="margin-left:0px;" name="voting[option_id]" value="<%= o.id %>">
+                </input>
+                  <!--</div>
+                  <div class="span11"> -->
+                <p style="margin-left:20px; display:inline;"><%= o.option %></p>
+                <br/>
+              <% end %>
+            <% end %>
+            <% if @totalVotes != 0 %>
+        		  <% v[i] = Voting.where("option_id = ?", o.id).count %> 
+              <% v[i] = (v[i]*100/@totalVotes) %>
+              <% i = i + 1 %>
+            <% end %>
+
+          <% end %>
+        </div><br/>
         <% if user_signed_in? %>
-        <% if @voted == false  %>
-  		 <td> <%= fo.radio_button :option_id, o.id %> </td>
-       
-  		  <td> <%= fo.label :option_id, o.option %> </td> 
+          <% if @voted == false  %>
+            <%= fo.submit 'Vote' %>
+          <% else %>
+            - We got your Vote..!! Cheers..!!
+          <% end %>
         <% end %>
-       <% end %>
-
-        <% if @totalVotes != 0 %>
-  		  <td><% v[i] = Voting.where("option_id = ?", o.id).count %> 
-          <%#= v  %>
-          <%#= @totalVotes  %>
-      <%# v1 = ((@totalVotes-v)*100)/@totalVotes %>
-      <% v[i] = (v[i]*100/@totalVotes) %>
-      
-      <%#= v %>
-      </td>
-
-  		 </tr>
-  		<% i = i + 1 %>
+       <% if @totalVotes != 0 %>
+        <% v.delete_at(i) %>
+        <div class="row-fluid">
+          <div class="poll-vault-image" id="#war-pie">
+            <img src="<%= Gchart.pie_3d( :size => '500x250', :data => [v], :legend => @options.all.collect{|o| o.option}, :labels => v.collect{|v| v})%>"/>
+          </div>
+        </div>
       <% end %>
-		<% end %>
-    </table>
-
-    <% if user_signed_in? %>
-     <% if @voted == false  %>
-    <p>
-      <%= fo.submit 'Vote' %>
-    </p>
-    <% else %>
-    You have already Voted!!!
     <% end %>
-    <% end %>
-
-    <% if @totalVotes != 0 %>
-    <% v.delete_at(i) %>
-    
-    <div> 
-     <p align="right">
-    <img src="<%= Gchart.pie_3d( :size => '600x300', :data => [v], :legend => @options.all.collect{|o| o.option}, :labels => v.collect{|v| v}
-    )%>"/>
-  </p>
+  </div>
 </div>
-<% end %>
-		
-      
-     
-
-<% end %>

@@ -1,15 +1,44 @@
-<h3> Post a Comment </h3>
+
+
+<style>
+.span3 label{
+  font-size:14px;
+  font-weight: bold;
+  float: right;
+}
+.span3 input[type=submit] {
+  float:left;
+}
+.span4 input[type=text]{
+  width:100%;
+}
+p{
+  text-align: center;
+  padding: 5px;
+}
+textarea{
+  width:auto;
+  height:auto;
+}
+</style>
 <%= form_for @comment do |f| %>
   <%= f.hidden_field :war_id %>
   <%= f.hidden_field :user_id %>
-  <p>
-    <%= f.label :comment %><br/>
-    <div> <%= f.text_area :comment %> </div>
-  </p>
-  <p>
-    <%= f.submit 'Submit' %>
-  </p>
+  
+    <div class="row-fluid">
+      <div  class="span12">
+        <div class="span10">
+           <%= f.text_area :comment, :cols=>50, :rows=>3, :placeholder=>'Your Comment Here' %>
+        </div>
+        <div class="span2">
+          <%= f.submit 'Submit' %>
+        </div>
+      </div>
+   </div>
+
 <% end %>
+
+
 
 <!--
 <style type="text/css">

@@ -2,10 +2,12 @@
  	color: white;
 	font-family:"Times New Roman", Times, serif;
 	/*background-color: black;*/
-	background-image: url('/assets/warplane.jpg');
-	/*background-position: center;*/
+	background:url('/assets/crissXcross.png');
+
+	/*
 	background-repeat: no-repeat;
-	background-color:#ccc;
+	background-size: 1300px 700px;*/
+	background-attachment: fixed;
 
 	padding-bottom: 50px;
 	padding-left:70px;
@@ -31,9 +33,9 @@ a:hover{
 
 .heading{
 	font-family:"Times New Roman", Times, serif;
-	font-style: italic;
+	font-style: bold;
 	font-size: 20px;
-	color: green;
+	color: #fff;
 }
 
 .navbar-inner{
