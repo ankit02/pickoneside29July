@@ -1,52 +1,46 @@
-<%= form_for @war, :validate => true do |f| %>
-<%= f.error_messages %>
-<table id = "warCreate">
-	<tr height = "60px"> </tr>
-	<tr>
-		<td width = "200px"> <%= f.label :topic %> </td>
-		<td width = "30px"> </td>
-		<td width = "500px"> <%= f.text_field :topic %> </td>
-	</tr>
 
-	<tr>
-		<td> <%= f.label :description %> </td>
-		<td width = "30px"> </td>
-		<td> <%= f.text_area :description, :cols => 20, :rows => 10 %> </td>
-	</tr>
-	<tr>
-		<td><%= image_tag @war.war_image(:small) %></td>
-		<td width = "30px"> </td>
-    	<td><%= f.file_field :war_pic %></td>
-	<tr>
-	<td> <%= f.label :category_id, 'Select Category' %> </td>
-		<td width = "30px"> </td>
-	<td>
+<%= simple_form_for(@war) do |f| %>
+    <div class="box-it">
+		<div class="control-group">
+			<div class="control-label"><%= f.label :topic %> </div>
+			<div class='controls'>
+				<%= f.text_field :topic %>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label"><%= f.label :description %> </div>
+			<div class='controls'>
+				<%= f.text_area :description, :cols => 20, :rows => 10  %>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label"><%= f.label :war_pic %> </div>
+			<div class='controls'>
+				<%=  f.file_field :war_pic  %>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label"><%= f.label :category_id, 'Select Category' %> </div>
+			<div class='controls'>
+				<%= f.collection_select :category_id, @categories,:id, :topic  %>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label">
+				<%= f.label :options_test, "Options (Comma seperated)" %> 
+			</div>
+			<div class='controls'>
+				<%= f.text_field :options_test  %>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label"><%= f.label ' ' %> </div> 
+			<div class='controls'>
+				<%= f.submit %>
+			</div>
+		</div>
+	</div>
 	
-	<%= f.collection_select :category_id, @categories,:id, :topic %>
-	</td></tr>
-	<tr>
-		<td> <%= f.label :options_test, "Options (Comma seperated)" %> </td>
-		<td width = "30px"> </td>
-		<td> <%= f.text_field :options_test %> </td>
-	</tr>
+	</form>
+<% end %>
 
-	</table>
-
-	<%#=# fields_for @war.options do |oForm| %>
-	
-	<table>
-	<tr>
- 	  <td> <%#=# oForm.label :option, 'Add options for polling' %> </td>
-  	 <td> <%#=# oForm.text_field :option %> </td>
-	</tr>
-	</table>
- 	<%# eConfigurationnd %>
-
-	
-	<table>
-	<tr>
-		<td> <%= f.submit "Create" %> </td>
-		
-	</tr>	
-	</table>
-	<% end %>

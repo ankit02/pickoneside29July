@@ -1,95 +1,69 @@
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=504323752911178";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
-<table id = "warView">
-
-
-	<div style="margin-left:40%;padding-top:50px">
-		<div class="dropdown" style = "font-style:italic,width:100px"><h4><%= @war.topic %>
-			<% if user_signed_in? %>
-			<% if @user.id == @war.user_id %> 
-			<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/wars/show.html">
-    <%= image_tag("/assets/setting_dark1.png") %>
-   
-    </a>
-   
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    <li><%= link_to('Edit', edit_war_path(@war)) %> <li>
-    
-    <li><%= link_to('Delete', war_path(@war), method: :delete, confirm: "Are you sure?") %></li>
-   </ul>
-		
-		<% end %>
-		<% end %>
-	</h4>
+<div class="offset2 span11" style="margin-top:10px;">
+	<div class='span6'>
+		<div class="row-fluid">
+			<div class="box-it">
+				<div align="center">
+					<div  id="war-settings" class="dropdown" style = "font-style:italic;">
+						<div class="heading" style="display:inline !important;"> <%= @war.topic %></div>
+						<% if user_signed_in? %>
+							<% if @user.id == @war.user_id %> 
+							 	<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#" style="text-decoration:none;">  <i class="icon-cog"> </i> </a>  	
+							 	<ul  class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+									<li title="Edit"><%= link_to 'Edit',edit_war_path(@war) %></li>
+									<li title="Delete"><%= link_to 'Delete',war_path(@war , method: :delete, confirm: "Are you sure?") %></li>
+								</ul>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class='row-fluid'>
+			<div class="box-it" style="text-align:center;">
+				<div class="row-fluid" id="war-pic">
+					<%= image_tag @war.war_image(:original) %>
+				</div>
+				<div class="row-fluid">
+					<h5>Views: <%= @war.hits.count %></h5>
+				</div>
+				<div class="row-fluid">
+					<p><%= @war.description %></p>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<% if user_signed_in? %>
+					<br/>
+					<div class="box-it">
+						<%= render partial: 'comments/form' %> 
+					</div><br/>
+				<% end %>
+			</div>
+		</div>
 	</div>
-		
-
-	<!--<tr>
-		<!-- <td>  Topic  </td> -->
-		<!--<td width = "30px"> </td>-->
-		<!--<td> <%#= @war.topic %> </td>
-	</tr>
-	<tr height="20px"></tr>
-	<tr>
-		<td> Description </td>
-		<td width = "30px"> </td>
-		<td> <%= @war.description %> </td>
-	</tr>-->
-
-	<tr height = "50px"> 
-		<h3 style = "text-align:center"><%= @war.description %></h2>
-
-	</tr>
+	<div class="span4">
+		<% if user_signed_in? or @totalVotes > 0  %>
 	
-	<tr>
-		<h4 style = "text-align:center"><%= image_tag @war.war_image(:thumb) %></h4>
-	</tr>
-		
-
-	<!--<tr>
-		<td> Category </td>
-		<td width = "30px"> </td>
-		<td> <%= @war.category.topic %> </td>
-	</tr>
-	<tr height = "50px"> </tr>-->
-
-	<!--
-	<tr>
-		<td> <h3> Comments </h3></td>
-		<td width = "30px"> </td>
-	</tr>
-	-->
-	<tr height = "20px"> </tr>
-	<tr>
-		<h5 style = "text-align:center">Views = <%= @war.hits.count %></h4>
-	</tr>
-	<tr>
-		<% if user_signed_in? %>
-		<td> <%= render partial: 'comments/form' %> </td>
-		<% end %>	
-	</tr>
-
-	<tr height = "40px">	
-	</tr>
-
-	<tr>
-		<td> <%= render partial: 'comment', collection: @war.comments %> </td>
-	</tr>
-
-		<tr height="30px"></tr>
-	<tr>
-		<% if !@war.options.empty? %>
-		<td> <%= render partial: 'votings/form' %> </td>
+				<div class="row-fluid">
+					<%= render partial: 'votings/form' %> 
+				</div>
+				<br/>
 		<% end %>
-	</tr>
-	
-	</table >
+		
+		<% if !@war.comments.empty? %>
+			<div class="box-it">
+					<div class="row-fluid">
+						<%= render partial: 'comment', collection: @war.comments %>
+					</div>
+
+			</div>
+
+		<% end %>
+	</div>
+</div>
+
+
+
 
 	

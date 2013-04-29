@@ -1,10 +1,56 @@
 
+<div class="offset3 span9" style="margin-top:15px;">
+  <div class="span5" >
+    <div class="box-it">
+      <div class = "heading"  style="text-align:center"> <%= @user.username %> </div>
+    </div><br/>
+    <div class="box-it">
+      <div class="control-group">
+          <div class="control-label"><%= label_tag "Username" %> </div>
+          <div class='controls'>
+            <%= @user.username %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="control-label"><%= label_tag "Email" %> </div>
+          <div class='controls'>
+            <%= @user.email %>
+          </div>
+        </div>
+        <br/>
+        <div class="control-group">
+          <div class="control-label"><%= label_tag ' ' %> </div>
+          <div class='controls'>
+            <%= link_to "GO BACK", root_path , :style=>"font-size:16px; font-weight:bold;"%>
+          </div>
+        </div>
+    </div>
+
+  </div>
+  <div class="span3" >
+    <div class="row-fluid">
+      <div class="box-it">
+        <div class = "heading"  style="text-align:center"> Profile Picture</div>
+      </div><br/>
+      <div class="box-it">
+       <div align="center">
+          <%= image_tag @user.user_image(:original), :id=>'profile_pic' %>
+        </div>
+      </div>
+    </div><br/>
+
+
+
+</div>
+</div>
+ 
+<!-- 
 
 <table id = "userView">
 	<tr>
-		<td>  Name  </td>
+		<td>    </td>
 		<td width = "30px"> </td>
-		<td> <%= @user.username %> </td>
+		<td> <%#=  @user.username %> </td>
 	</tr>
 	<tr>
 		<td>  Email  </td>
@@ -14,7 +60,28 @@
 	<tr>
 		<td>  Profile Picture  </td>
 		<td width = "30px"> </td>
-		<td> <%= image_tag @user.user_image(:thumb) %> </td>
+		<td> <%#=  image_tag @user.user_image(:thumb) %> </td>
 	</tr>
 </table>
-<%= link_to 'Back', root_path %>
+<%#=  link_to 'Back', root_path %>
+
+<div class = "heading" style="text-align:center"> <h2>Your Profile </h2></div>
+<div class="center-form span8">
+
+	<form class="form-horizontal">
+
+		<div class="control-group">
+			<div class="control-label">Name</div>
+			<div class='controls'>
+				<%= @user.username %>
+			</div>
+		</div>
+
+
+
+	</form>
+</div>
+
+-->
+
+

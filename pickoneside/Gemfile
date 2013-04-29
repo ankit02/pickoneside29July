@@ -24,8 +24,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-
+gem "font-awesome-rails", "~> 3.0.2.0"
  gem 'bootstrap-wysihtml5-rails'
+
 
 gem 'jquery-rails'
 

@@ -11,10 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130329064902) do
+ActiveRecord::Schema.define(:version => 20130405115112) do
 
   create_table "categories", :force => true do |t|
     t.string   "topic"
+    t.integer  "war_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -91,11 +92,11 @@ ActiveRecord::Schema.define(:version => 20130329064902) do
     t.datetime "updated_at",           :null => false
     t.string   "description"
     t.integer  "category_id"
-    t.integer  "user_id"
     t.string   "war_pic_file_name"
     t.string   "war_pic_content_type"
     t.integer  "war_pic_file_size"
     t.datetime "war_pic_updated_at"
+    t.integer  "user_id"
   end
 
   add_index "wars", ["category_id"], :name => "wars_category_id_fk"
@@ -112,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20130329064902) do
   add_foreign_key "votings", "options", :name => "votings_option_id_fk"
   add_foreign_key "votings", "users", :name => "votings_user_id_fk"
 
+  add_foreign_key "wars", "categories", :name => "wars_category_id_fk"
   add_foreign_key "wars", "users", :name => "wars_user_id_fk"
 
 end

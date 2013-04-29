@@ -1,18 +1,68 @@
-<h2>Sign in</h2>
+<div class="offset3 span9" style="margin-top:10px;">
+  <div class='span5'>
+    <div class="row-fluid">
+      <div class="box-it">
+        <div align="center">
+          <div class="heading" style="display:inline !important;"> 
+            Sign In
+          </div>
+        </div>
+      </div><br/>
+      <div class="row-fluid">
+        <div class="box-it">
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+				<form class="form-horizontal">
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-<br />
-  <div><%= f.label :username %>
-  <%= f.text_field :username %></div>
-<br />
-  <div><%= f.label :password %>
-  <%= f.password_field :password %></div>
+					<div class="control-group">
+						<div class="control-label"><%= f.label :username %> </div>
+						<div class='controls'>
+							<%= f.text_field :username %>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="control-label"><%= f.label :password %> </div>
+						<div class='controls'>
+							<%= f.password_field :password  %>
+						</div>
+					</div>
+					<%#= f.label :remember_me %>
+					<div class="control-group">
+						<div class="control-label"><%= f.label ' ' %> </div>
+						<div class='controls'>
+							<input type="checkbox" value=1  name-"user[<%= :remember_me %>]" style="margin-right:10px;" >  Remember me</input>
+						</div>
+					</div>
+					<%#= f.check_box :remember_me %> 
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+					<div class="control-group">
+						<div class="control-label"><%= f.label ' ' %> </div>
+						<div class='controls'>
+							<%= f.submit 'Sign In' %>
+						</div>
+					</div>
+					<div class="control-group" align="center">
+					  <div class="control-label"><%= f.label ' ' %> </div>
+					    <div class='controls'>
+					     <div class="text-center"> <%= render "links" %></div>
+					    </div>
+					 </div>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+					<%#=# fields_for @war.options do |oForm| %>
+					
+				<!-- 	<table>
+					<tr>
+				 	  <td> <%#=# oForm.label :option, 'Add options for polling' %> </td>
+				  	 <td> <%#=# oForm.text_field :option %> </td>
+					</tr>
+					</table> -->
+				 	<%# eConfigurationnd %>
 
-<%= render "links" %>
+				</form>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
+
+

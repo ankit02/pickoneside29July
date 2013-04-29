@@ -1,10 +1,19 @@
-<table>
-    <% @wars.each do |war| %>
-  <tr>
-  <td><%= link_to war.topic, 
-    :action => 'show', :id => war.id  %></td>
-    <td width = "30px"> </td>
 
-    <td > <%= label_tag war.description %> </td>
-  <% end %>
-  </table>
+<div class="row-fluid">
+<div class="tabular" >
+<table align="center">
+	    <% @wars.each do |war| %>
+			<tr class="row">
+			  <td class="topic">
+			  	<%= link_to war.topic, :action => 'show', :id => war.id  %>
+			  	</td>
+
+			 <td class="description">
+		   		<%= label_tag war.description%> 
+		   	</td>
+
+	  	<% end %>
+</table>
+
+	</div>
+</div>

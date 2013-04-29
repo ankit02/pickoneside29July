@@ -1,39 +1,31 @@
+
+
 <%= form_tag :searchByCategory_wars, :method => :get do %>
 
-<table id = "searchByCategory">
-  <tr height = "60px" > </tr>
-	<tr>
-		<td> <%= label_tag :searchByCategory, 'Category' %> </td>
-		<td width = "30px"> </td>
-		<td><%#= text_field_tag :searchByCategory, params[:searchByCategory] %> </td>
+    <div  class="row-fluid" style="margin-left:25%;">
+      <div class="control-group">
+        <div class="control-label"><%=  label_tag 'Category:' %> 
+        </div>
+        <div class="controls">     
+          <%= collection_select :post,:category_id, Category.all, :id, :topic, :prompt => true %> <%= submit_tag "Search", :name => nil, :style=>"margin-left:15px;" %>
+        </div>
+      </div>
+	 </div>
 
-    <td>
-  
-  <%= collection_select :post,:category_id, Category.all, :id, :topic, :prompt => true %>
+    
 
-  <%#= select "topic", "id", @categories.map{|c| [c.topic, c.id]}, {} , data: { behavior: 'category_dropdown' } %>
-  </td>
-	</tr>
-	<tr height = "100px"> <td>
-	<%= submit_tag "Search", :name => nil %>
-</td> <tr>
+     <% if (@wars) %>
+      <% if (@wars.empty?) %>
+        <p style="text-align: center; padding: 5px;">No wars found.</p>
+      <% else %>
 
-</table>
-
-<% if (@wars) %>
-  <% if (@wars.empty?) %>
-    <p>No wars found.</p>
-  <% else %>
-
-  	 <%= render :partial => 'wars/search_results' %>
-     <%= will_paginate @wars %>
-   <%# @wars.each do |war| %>  
-      <p><%#= label_tag war.topic %></p>
-    <%# end %>
-  <% end %>
-<% else %>
-   <p>Use the search form to search for a war.</p>
-<% end %>
-
+    	 <%= render :partial => 'wars/search_results' %>
+       <%= will_paginate @wars %>
+ 
+      <% end %>
+    <% else %>
+      <p style="text-align: center; padding: 5px;" >Use the search form to search for a war.</p>
+    <% end %>
 
 <% end %>
+
