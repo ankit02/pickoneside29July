@@ -266,10 +266,10 @@ div#war-pic img{
 	border-radius:5px;
 
 }
-.tabular{
+/*.tabular{
  	opacity:0.9;
 	margin-top:30px;
-	/*background:url('/assets/black_linen_v2.png');*/
+	background:url('/assets/black_linen_v2.png');
 	background-color:#444;
 	border-radius:5px;
 	font-size:14px;
@@ -297,12 +297,12 @@ div#war-pic img{
 }
 
 .topic a:hover{
-/*
+
 	transform: scale(1.2,1.2);
 	-webkit-transform: scale(1.2,1.2);
 	-o-transform: scale(1.12,0.2);
 	-moz-transform: scale(1.12,0.2);
-	*/
+	
 	text-decoration:none;
 	background-color:#222;
 	-moz-box-shadow:    inset 0 0 10px #000;
@@ -325,11 +325,11 @@ tr.row td{
 	border-top:0px !important;
 }
 td.topic{
-	width:220px !important;
+	width:auto !important;
 }
 td.description{
-	width:1000px !important;
-}
+	width:auto !important;
+}*/
 a i:hover{
 	text-decoration:none;
 }
@@ -350,5 +350,76 @@ opacity: 0.8;
 border-radius:3px;
 padding:5px;
 
+}
+em.current{
+padding: 5px;
+background-color: #000;
+opacity: 0.5;
+border-radius:1px;
+}
+.pagination a, .pagination .disabled{
+	line-height:inherit;
+	float:inherit;
+		padding: 5px;
+}
+.pagination{
+	text-align:center;
+	z-index:55555;
+	position:relative;
+}
+.pagination a:hover{
+	text-decoration:none;
+	background-color: #000;
+opacity: 0.9;
+border-radius:2px;
+}
+.tab{
+	width:120px;
+	background-color:#000;
+	opacity:0.7;
+	border-radius:2px;
+	height:150px;
+	margin:20px;
+	float:left;
+	transition: transform 4s ease;
+	-webkit-transition: -webkit-transform 2s ease;
+	-moz-transition: -moz-transform 2s ease;
+	-ms-transition: -ms-transform 2s ease;
+	-o-transition: -o-transform 2s ease;
+}
+img.polaroid-image{
+	padding:10px 10px 10px 10px;
+	width:100px;
+	height:100px;
+	position: relative;
+	top: -95px;
+	z-index:-11;
+}
+div.polaroid-title {
+	padding-bottom:10px;
+	position: relative;
+top: -100px;
+}
+p.ribbon-views{
+	z-index:999;
+	margin-bottom:0px;
+	position:relative;
+	top:-60px;width:30%;
+	margin-left:70px;
+
+}
+img.ribbon{
+	z-index:9999;
+	height:60px;
+	width:40px;
+	margin-top:-5px;
+margin-left:70px;
+}
+.search-results{
+	margin-left:20%;
+	width:50%
+}
+div.tab:hover{
+	box-shadow: 0px 0px 10px #fff;
 }
 @import "bootstrap-responsive";

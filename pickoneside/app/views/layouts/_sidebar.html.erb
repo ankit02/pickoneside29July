@@ -139,13 +139,13 @@ div.panel ul li a:hover
 	font-size:12px;
 }
 #panel1{
-
+	opacity:1;
 	position:fixed !important;
 	top:130px !important;
 	z-index: 998;
 }
 #panel2{
-
+	opacity:0.9;
 	position:fixed !important;
 	top:170px !important;
 	z-index: 989;
@@ -178,7 +178,12 @@ $(document).ready(function(){
 		//ajaxSource: 'ajax.html'
 	});
 	$('#trigger1').click(function(){
-
+		$('#panel2').hide();
+		$('#trigger2').removeClass('active');
+	});
+	$('#trigger2').click(function(){
+		$('#panel1').hide();
+		$('#trigger1').removeClass('active');
 	});
 
 	

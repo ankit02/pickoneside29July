@@ -124,7 +124,7 @@ class WarsController < ApplicationController
 
 		#@wars = War.search(params[:search],params[:page])
 
-		@wars = War.paginate(:page => params[:page], :per_page => 8).search(params[:search])
+		@wars = War.paginate(:page => params[:page], :per_page => 10).search(params[:search])
 		
 	end
 
@@ -136,7 +136,7 @@ class WarsController < ApplicationController
 			
 		#@wars = War.searchByCategory(params[:post][:category_id])
 
-		@wars = War.paginate(:page => params[:page], :per_page => 8).
+		@wars = War.paginate(:page => params[:page], :per_page => 10).
 		searchByCategory(params[:post][:category_id])
 
 	end

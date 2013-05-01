@@ -20,7 +20,7 @@
 			position: 'absolute',
 			triggerTopPos: '80px',
 			panelTopPos: '50px',
-			panelOpacity: 0.9,
+			panelOpacity: 1,
             speed: 'fast',
 			ajax: false,
 			ajaxSource: null,
