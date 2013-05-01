@@ -1,19 +1,22 @@
 
-<div class="row-fluid">
-<div class="tabular" >
-<table align="center">
+<div align="center" class="search-results container-fluid" style="">
 	    <% @wars.each do |war| %>
-			<tr class="row">
-			  <td class="topic">
-			  	<%= link_to war.topic, :action => 'show', :id => war.id  %>
-			  	</td>
+	    <a href="<%= war.id %>" method="show">
+			<div class="tab">
+			
+				<img src="<%= '/assets/ribbon.png' %>" class="ribbon"></img> <br><p class="ribbon-views"> <i class="icon-eye-open"></i> <br><%= war.hits.count %></p>
+			  	<%= image_tag war.war_image(:small), :class=>'polaroid-image' %>
+			  	<div class='polaroid-title'>
+			  	<%= war.topic %>
+			  	</div>
 
-			 <td class="description">
-		   		<%= label_tag war.description%> 
-		   	</td>
-
-	  	<% end %>
-</table>
-
+			</div>
+		</a>
+		<% end %>
 	</div>
 </div>
+
+<style>
+
+
+</style>
