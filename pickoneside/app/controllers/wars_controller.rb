@@ -96,7 +96,8 @@ class WarsController < ApplicationController
 	def edit
 		@war = War.find(params[:id])
 		@categories = Category.all
-		@options = Option.new
+		#debugger
+		#@options = Option.new
 	end
 
 	def update
