@@ -1,24 +1,28 @@
 <div>
-  <span style="float:left">
-  <%#= link_to "Home", root_path, :class => 'brand' %>
-</span>
 
-<span class="brand" style="float:left; padding:10px">
+<!-- trying to make it resonsive--><!--
+<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="<%= root_path %>">Pick One Side</a> -->
+ <%#= link_to " WAR", new_war_path, :class=>'icon-plus-sign', :title=>'Create a new War' %>
 
-<i> <%= link_to " WAR", new_war_path, :class=>'icon-plus-sign', :title=>'Create a new War' %>
-
-</span>
+<!-- </span> -->
 
 <div style="float:left;">
+
  <ul class="nav">
-    <li style="margin-left:20px;">
+    <li><a href="<%= new_war_path %>" title='Create a new War'><i class='icon-plus-sign'></i> War</a></li>
+    <li>
     <div class="dropdown">
     <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
     <i class="icon-search"></i> Search a War
     <b class="caret"></b>
     </a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    <li><%= link_to('By Category', searchByCategory_wars_path) %> <li>
+    <li><%= link_to('By Category', searchByCategory_wars_path) %> </li>
     
     <li><%= link_to('By Topic', search_wars_path) %></li>
    </ul>
