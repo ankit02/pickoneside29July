@@ -32,12 +32,14 @@
 					<p><%= @war.description %></p>
 				</div>
 			</div>
+			<% if not @war.options.blank? %>
 			<% if user_signed_in? or @totalVotes > 0  %>
 			<br/>
 				<div class="box-it" id="poll-vault">
 					<%= render partial: 'votings/form' %> 
 				</div>
 				<br/>
+			<% end %>
 			<% end %>
 
 		</div>

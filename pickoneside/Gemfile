@@ -64,3 +64,5 @@ gem 'will_paginate', '~> 3.0'
 gem 'dynamic_form'
 
 gem 'client_side_validations'
+
+gem 'client_side_validations-simple_form'

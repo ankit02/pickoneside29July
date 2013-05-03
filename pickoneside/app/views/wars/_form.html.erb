@@ -1,12 +1,17 @@
 
-<%= simple_form_for(@war) do |f| %>
+<%= simple_form_for @war, :validate => true do |f| %>
+
     <div class="box-it">
 		<div class="control-group">
-			<div class="control-label"><%= f.label :topic %> </div>
+			<div class="control-label"><%= f.label :topic %></div>
 			<div class='controls'>
-				<%= f.text_field :topic %>
+				
+				<%= f.text_field :topic, :disabled => !@war.topic.blank? %>
+				
+
 			</div>
 		</div>
+
 		<div class="control-group">
 			<div class="control-label"><%= f.label :description %> </div>
 			<div class='controls'>
@@ -25,6 +30,8 @@
 				<%= f.collection_select :category_id, @categories,:id, :topic  %>
 			</div>
 		</div>
+		
+		<% if @war.topic.blank? %>
 		<div class="control-group">
 			<div class="control-label">
 				<%= f.label :options_test, "Options (Comma seperated)" %> 
@@ -32,6 +39,8 @@
 			<div class='controls'>
 				<%= f.text_field :options_test  %>
 			</div>
+			<% end %>
+			
 		</div>
 		<div class="control-group">
 			<div class="control-label"><%= f.label ' ' %> </div> 
