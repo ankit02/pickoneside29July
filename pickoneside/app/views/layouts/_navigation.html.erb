@@ -38,15 +38,15 @@
 
 <div style="float:right">
     
-<ul class="nav">
+<ul class="nav" style="right:0px">
   <% if user_signed_in? %>
     <li style="padding: 10px 5px; font-size: 18px; text-shadow: 0.5px 1px #bbb; letter-spacing: 2px;"><%= current_user.username %>
     </li>
     <li>
-      <div class="dropdown">
+      <div class="dropdown" style="max-height:40px"> 
         <a class="dropdown-toggle" id="dUser" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html"><%= image_tag current_user.user_image(:small) %><b class="caret"></b>    
         </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dUser" style="min-width:115px;z-index:99999;opacity:1;">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dUser" style="min-width:115px;z-index:99999;opacity:1; right:0px;">
           <li><%= link_to "View Profile", user_path(current_user) %></li>
           <% if current_user.provider != 'facebook' %>
             <li>
