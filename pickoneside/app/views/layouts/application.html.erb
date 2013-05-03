@@ -5,9 +5,9 @@
   <title>Pickoneside</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
 
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "/assets/jquery.min.js" %>
-
+  <%= javascript_include_tag "application", "rails.validations" %>
+  <%= javascript_include_tag "/assets/jquery.min.js", "rails.validations"  %>
+    <%= javascript_include_tag "application", "rails.validations.simple_form" %>
   
   <%= csrf_meta_tags %>
 

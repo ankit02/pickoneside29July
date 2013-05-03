@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
   # attr_accessible :title, :body
 
+  validates :username, :presence => true, :uniqueness => true
+
   def user_image(size)
 	if profile_pic.present?
 		return profile_pic.url(size)

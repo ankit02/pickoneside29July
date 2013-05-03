@@ -38,11 +38,14 @@ class WarsController < ApplicationController
 		redirect_to war_path(@war)
 		else
 			#@categories = Category.all
-		#render 'new'
+		#render new_war_path(@war)
+			
+		
         #format.html { render action: "new" }
         #format.json { render json: @war.errors, status: :unprocessable_entity }
 		#end
 		end
+
 	end
 
 	def new
@@ -96,7 +99,7 @@ class WarsController < ApplicationController
 	def edit
 		@war = War.find(params[:id])
 		@categories = Category.all
-		@options = Option.new
+		#@options = "abcd"
 	end
 
 	def update
