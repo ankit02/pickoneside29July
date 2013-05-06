@@ -2,8 +2,10 @@
 
 
 </style>
+<%= render partial: 'layouts/header' %> 
 <%= form_tag :search_wars, :method => :get do %>
-    <div  class="row-fluid" style="margin-left:25%;">
+  <div  class="row-fluid">
+    <div class="offset3 span6">
       <div class="control-group">
         <div class="control-label"><%= label_tag  'Topic' %>  
         </div>
@@ -11,7 +13,8 @@
           <%= text_field_tag :search, params[:search] %> <%= submit_tag "Search", :name => nil, :style=>"margin-left:15px;" %>
         </div>
       </div>
-   </div>
+    </div>
+  </div>
 
     <% if (@wars) %>
       <% if (@wars.empty?) %>
@@ -24,5 +27,5 @@
          <p style="text-align: center; padding: 5px;">Use the search form to search for a war.</p>
     <% end %>
 <% end %>
-
+<%= render partial: 'layouts/footer' %> 
 

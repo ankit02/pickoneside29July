@@ -1,5 +1,5 @@
-
-<div class="offset3 span9" style="margin-top:15px;">
+<%= render partial: 'layouts/header' %> 
+<div class="offset3 span9">
   <div class="span5" >
     <div class="box-it">
       <div class = "heading"  style="text-align:center"> <%= @user.username %> </div>
@@ -43,7 +43,7 @@
 
 </div>
 </div>
- 
+ <%= render partial: 'layouts/footer' %> 
 <!-- 
 
 <table id = "userView">

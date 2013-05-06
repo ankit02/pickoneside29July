@@ -8,7 +8,7 @@
   <%#= javascript_include_tag "application", "rails.validations" %>
   <%= javascript_include_tag "/assets/jquery.min.js", "rails.validations"  %>
     <%= javascript_include_tag "application", "rails.validations.simple_form" %>
-  
+  <link rel="icon" type="image/ico" href="/assets/favicon.png"/>
   <%= csrf_meta_tags %>
 
 </head>
@@ -20,7 +20,7 @@
      <% end %>
 	 <header class="navbar navbar-fixed-top">
       <nav class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
           <%= render 'layouts/navigation' %>
         </div>
       </nav>

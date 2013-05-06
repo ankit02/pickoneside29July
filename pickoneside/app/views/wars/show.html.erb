@@ -1,20 +1,26 @@
-
-<div class="offset2 span11" style="margin-top:10px;">
+<%= render partial: 'layouts/header' %> 
+<div class="offset2 span11" >
 	<div class='span6'>
 		<div class="row-fluid">
 			<div class="box-it">
 				<div align="center">
 					<div  id="war-settings" class="dropdown" style = "font-style:italic;">
-						<div class="heading" style="display:inline !important;"> <%= @war.topic %></div>
+						<div class="heading" style="display:inline !important;"> <%= @war.topic %>
+						
 						<% if user_signed_in? %>
 							<% if @user.id == @war.user_id %> 
-							 	<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#" style="text-decoration:none;">  <i class="icon-cog"> </i> </a>  	
+								<a title="Edit" href="<%= edit_war_path(@war) %>" align="right" style="position: absolute; right: 20px;"><i class="icon-pencil"></i></a>
+								<a title="Delete" href="<%= war_path(@war) %>" align="right" style="position: absolute; right: 0px;" data-confirm="Are You Sure?" data-method="delete"><i class="icon-trash"></i></a>
+							
+							 <!-- 	<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#" style="text-decoration:none;">  <i class="icon-cog"> </i> </a>  	
 							 	<ul  class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-									<li title="Edit"><%= link_to 'Edit',edit_war_path(@war) %></li>
-									<li title="Delete"><%= link_to 'Delete',war_path(@war , method: :delete, confirm: "Are you sure?") %></li>
-								</ul>
+									<!-- <li title="Edit"><%#= link_to 'Edit',edit_war_path(@war) %></li> 
+									<li title="Delete"><%#= link_to 'Delete',war_path(@war) , method: :delete, confirm: "Are you sure?" %></li>
+								</ul>  -->
 							<% end %>
 						<% end %>
+						
+						</div>
 					</div>
 				</div>
 			</div>
@@ -45,14 +51,7 @@
 		</div>
 	</div>
 	<div class="span4">
-		<div class="row-fluid">
-			<% if user_signed_in? %>
-					
-					<div class="box-it">
-						<%= render partial: 'comments/form' %> 
-					</div><br/>
-				<% end %>
-			</div>
+		
 		
 		<% if !@war.comments.empty? %>
 			<div class="box-it">
@@ -63,10 +62,18 @@
 			</div>
 
 		<% end %>
+		<div class="row-fluid">
+			<% if user_signed_in? %>
+					<br/>
+					<div class="box-it">
+						<%= render partial: 'comments/form' %> 
+					</div>
+				<% end %>
+			</div>
 	</div>
 </div>
 
-
+<%= render partial: 'layouts/footer' %> 
 
 
 	

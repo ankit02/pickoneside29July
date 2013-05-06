@@ -3,9 +3,9 @@
 	font-family:"Times New Roman", Times, serif;
 	/*background-color: black;*/
 
-	background:url('/assets/crissXcross.png');
-
-	background-size: 1300px 700px;*/
+	background:url('/assets/dark_mosaic.png');
+	background-repeat: repeat;
+	/*background-size: 1300px 700px;*/
 	background-attachment: fixed;
 
 	padding-bottom: 50px;
