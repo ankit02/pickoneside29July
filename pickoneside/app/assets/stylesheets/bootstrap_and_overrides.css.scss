@@ -459,4 +459,10 @@ opacity:0.9;
 -webkit-box-shadow:inset -1px -4px 54px #000000;
 box-shadow:inset -1px -4px 54px #000000;
 }
+img.pro-pic{
+	max-height:40px !important;  
+}
+.help-inline{
+	color:red !important;
+}
 @import "bootstrap-responsive";

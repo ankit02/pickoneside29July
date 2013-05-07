@@ -6,7 +6,7 @@
 			<div class="control-label"><%= f.label :topic %></div>
 			<div class='controls'>
 				
-				<%= f.text_field :topic, :disabled => !@war.topic.blank? %>
+				<%= f.text_field :topic, :disabled => !@war.topic.blank?, :required=>'true' %>
 				
 
 			</div>
@@ -15,7 +15,7 @@
 		<div class="control-group">
 			<div class="control-label"><%= f.label :description %> </div>
 			<div class='controls'>
-				<%= f.text_area :description, :cols => 20, :rows => 10  %>
+				<%= f.text_area :description, :cols => 20, :rows => 10,:required=>'true'  %>
 			</div>
 		</div>
 		<div class="control-group">
@@ -34,7 +34,7 @@
 		<% if @war.topic.blank? %>
 		<div class="control-group">
 			<div class="control-label">
-				<%= f.label :options_test, "Options (Comma seperated)" %> 
+				<%= f.label :options_test, "Voting Options (Comma seperated)" %> 
 			</div>
 			<div class='controls'>
 				<%= f.text_field :options_test  %>

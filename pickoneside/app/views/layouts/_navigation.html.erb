@@ -48,7 +48,7 @@
     </li>
     <li>
       <div class="dropdown" style="max-height:40px"> 
-        <a class="dropdown-toggle" id="dUser" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html"><%= image_tag current_user.user_image(:small) %><b class="caret"></b>    
+        <a class="dropdown-toggle" id="dUser" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html"><%= image_tag current_user.user_image(:small), :class=>"pro-pic" %><b class="caret"></b>    
         </a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dUser" style="min-width:115px;z-index:99999;opacity:1; right:0px;">
           <li><%= link_to "View Profile", user_path(current_user) %></li>
