@@ -5,8 +5,7 @@
   <title>Pickoneside</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
 
-  <%#= javascript_include_tag "application", "rails.validations" %>
-  <%= javascript_include_tag "/assets/jquery.min.js", "rails.validations"  %>
+  <%#= javascript_include_tag "/assets/jquery.min.js", "rails.validations"  %>
     <%= javascript_include_tag "application", "rails.validations.simple_form" %>
   <link rel="icon" type="image/ico" href="/assets/favicon.png"/>
   <%= csrf_meta_tags %>
@@ -18,12 +17,20 @@
    <p class="notice"><%#= notice %></p>
      <p class="alert"><%= alert %></p>
      <% end %>
-	 <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container-fluid">
-          <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
+	 <header>
+<!--        <nav class="navbar-inner">
+        <div class="container-fluid">  -->
+     <div class="navbar">
+     <div class="navbar-inner">
+      <div class="container">  
+
+    <%= render 'layouts/navigation' %>
+  
+       </div>
+      </div>
+    </div> 
+<!--         </div>
+      </nav> -->
     </header>
 
 <%= render "layouts/sidebar" %>
