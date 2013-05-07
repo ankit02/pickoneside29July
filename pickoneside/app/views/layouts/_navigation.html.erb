@@ -1,6 +1,6 @@
-<div>
 
-<!-- trying to make it resonsive--><!--
+
+<!-- trying to make it resonsive--><!-- already commented code --> <!--
 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -11,9 +11,17 @@
 
 <!-- </span> -->
 
-<div style="float:left;">
-
- <ul class="nav">
+<div>
+<div style="float:left;"> 
+<!-- 
+ <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-caret-down"></span>
+ </a>
+ <a class="brand" href="<%#= root_path %>"><%#= image_tag("/assets/header.png", :border => 0, :size => "250x42" ) %>
+ </a>  -->
+ <!-- <div class="nav-collapse collapse"> -->
+ <ul class="nav"> 
+  <!-- <div id="left-nav"> -->
     <li><a href="<%= root_path %>" title='Home'><i class='icon-home'></i> Home</a>
     <li><a href="<%= new_war_path %>" title='Create a new War'><i class='icon-plus-sign'></i> War</a></li>
     <li>
@@ -28,22 +36,23 @@
     <li><%= link_to('By Topic', search_wars_path) %></li>
    </ul>
     </div>
-    </li>
-
+  </li>
+<!-- </div>
+ -->
   </ul>
 
 </div>
 
 
-<span style='top: 40px;margin-left: 20%;'>
+ <span style='top: 40px;margin-left: 10%;'>
   <%= link_to image_tag("/assets/header.png", :border => 0, :size => "250x42" ), root_path %>
-</span>
-
+</span> 
 
 
 <div style="float:right">
     
-<ul class="nav" style="right:0px">
+<ul class="nav" style="right:0px" >
+<!-- <div <div id="right-nav"> -->
   <% if user_signed_in? %>
     <li style="padding: 10px 5px; font-size: 18px; text-shadow: 0.5px 1px #bbb; letter-spacing: 2px;"><%= current_user.username %>
     </li>
@@ -76,7 +85,10 @@
       <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
       </li>
     <% end %>
+<!-- </div> -->
 </ul>
+
+</div>
 </div>
 
 
