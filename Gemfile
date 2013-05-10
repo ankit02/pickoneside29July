@@ -66,6 +66,8 @@ gem 'client_side_validations'
 
 gem 'client_side_validations-simple_form'
 
+gem 'aws-sdk'
+
 group :production do
   gem 'pg'
 end
