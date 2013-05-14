@@ -1,5 +1,6 @@
 # ClientSideValidations Initializer
 
+#require 'client_side_validations/simple_form' if defined?(::SimpleForm)
 # Uncomment to disable uniqueness validator, possible security issue
 # ClientSideValidations::Config.disabled_validators = [:uniqueness]
 

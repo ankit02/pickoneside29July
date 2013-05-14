@@ -1,11 +1,11 @@
 <div class="row-fluid">
-  <div class="span12">
+  <div class="span12"  style="display:inline-block; vertical-align:middle;">
     <%= form_for @voting do |fo| %>
         <%= fo.hidden_field :option_id %>
         <%= fo.hidden_field :user_id %>
         <% v=[],i=0 %>
 
-        <div class="span4">
+        <div class="span3" style="display:inline-block; vertical-align:middle;">
 <!--         <div style="width:50%; margin-left:20px;"> -->
       
         	<% @options.all.each do |o| %>
@@ -51,7 +51,7 @@
       
        <% if @totalVotes != 0 %>
         <% v.delete_at(i) %>
-        <div class="span7">
+        <div class="span8"  style="display:inline-block; vertical-align:middle;">
           <div class="poll-vault-image" id="#war-pie">
             <img src="<%= Gchart.pie_3d( :size => '500x250', :data => [v], :legend => @options.all.collect{|o| o.option}, :labels => v.collect{|v| v})%>"/>
           </div>

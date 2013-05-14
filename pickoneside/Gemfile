@@ -11,7 +11,6 @@ gem 'foreigner'
 
 gem 'auto_strip_attributes', '~> 1.0'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -64,3 +63,5 @@ gem 'will_paginate', '~> 3.0'
 gem 'dynamic_form'
 
 gem 'client_side_validations'
+
+gem 'client_side_validations-simple_form'

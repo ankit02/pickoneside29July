@@ -1,8 +1,9 @@
-
+<%= render partial: 'layouts/header' %> 
 
 <%= form_tag :searchByCategory_wars, :method => :get do %>
 
-    <div  class="row-fluid" style="margin-left:25%;">
+    <div  class="row-fluid">
+      <div class="offset3 span6">
       <div class="control-group">
         <div class="control-label"><%=  label_tag 'Category:' %> 
         </div>
@@ -10,10 +11,10 @@
           <%= collection_select :post,:category_id, Category.all, :id, :topic, :prompt => true %> <%= submit_tag "Search", :name => nil, :style=>"margin-left:15px;" %>
         </div>
       </div>
+    </div>
 	 </div>
 
-    
-
+<div  class="row-fluid">
      <% if (@wars) %>
       <% if (@wars.empty?) %>
         <p style="text-align: center; padding: 5px;">No wars found.</p>
@@ -26,6 +27,7 @@
     <% else %>
       <p style="text-align: center; padding: 5px;" >Use the search form to search for a war.</p>
     <% end %>
-
+</div>
 <% end %>
+<%= render partial: 'layouts/footer' %> 
 

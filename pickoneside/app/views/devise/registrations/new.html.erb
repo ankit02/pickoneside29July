@@ -1,7 +1,7 @@
 <!-- <<<<<<< HEAD -->
-
-<div class="offset3 span9" style="margin-top:10px;">
-  <div class='span5'>
+<%= render partial: 'layouts/header' %> 
+<div class="offset3 span9" >
+  <div class='span6'>
     <div class="row-fluid">
       <div class="box-it">
         <div align="center">
@@ -14,7 +14,7 @@
         <div class="box-it">
 
             <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-            <%= devise_error_messages! %>
+            
               <form class="form-horizontal">
                 <div class="control-group">
                   <div class="control-label"><%= f.label :username %> </div>
@@ -64,6 +64,6 @@
 
 </div>
 </div>
-
+<%= render partial: 'layouts/footer' %> 
 
 
