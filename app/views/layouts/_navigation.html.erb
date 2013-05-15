@@ -54,6 +54,9 @@
 <ul class="nav" style="right:0px" >
 <!-- <div <div id="right-nav"> -->
   <% if user_signed_in? %>
+  <li style="padding: 10px; top: 40px">
+    <%= link_to('View all wars', :action => 'viewAll', :controller => 'wars') %>
+    </li> 
     <li style="padding: 10px 5px; font-size: 18px; text-shadow: 0.5px 1px #bbb; letter-spacing: 2px;"><%= current_user.username %>
     </li>
     <li>
