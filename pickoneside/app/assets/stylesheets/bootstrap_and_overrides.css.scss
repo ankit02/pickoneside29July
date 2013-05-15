@@ -462,13 +462,20 @@ ul.nav{
 	div#left-nav, div#right-nav{
 
 	}
-}*/
+}
 
 img.pro-pic{
 	max-height:40px !important;  
 }
 .help-inline{
 	color:red !important;
+}
+
+.addthis_toolbox{
+	position:fixed !important;
+	width:300px !important;
+	right:20px !important;
+	bottom:10px !important;
 }
 
 @import "bootstrap-responsive";
