@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 
   # attr_accessible :title, :body
 
+  has_many :hits, :dependent => :delete_all
+  has_many :comments, :dependent => :delete_all
+  has_many :votings, :dependent => :delete_all
+
   validates :username, :presence => true, :uniqueness => true
 
   def user_image(size)
