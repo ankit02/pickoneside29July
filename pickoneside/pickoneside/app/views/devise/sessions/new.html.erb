@@ -1,0 +1,69 @@
+<%= render partial: 'layouts/header' %> 
+<div class="offset3 span9" >
+  <div class='span6'>
+    <div class="row-fluid">
+      <div class="box-it">
+        <div align="center">
+          <div class="heading" style="display:inline !important;"> 
+            Sign In
+          </div>
+        </div>
+      </div><br/>
+      <div class="row-fluid">
+        <div class="box-it">
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+				<form class="form-horizontal">
+
+					<div class="control-group">
+						<div class="control-label"><%= f.label :username %> </div>
+						<div class='controls'>
+							<%= f.text_field :username %>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="control-label"><%= f.label :password %> </div>
+						<div class='controls'>
+							<%= f.password_field :password  %>
+						</div>
+					</div>
+					<%#= f.label :remember_me %>
+					<div class="control-group">
+						<div class="control-label"><%= f.label ' ' %> </div>
+						<div class='controls'>
+							<input type="checkbox" value=1  name-"user[<%= :remember_me %>]" style="margin-right:10px;" >  Remember me</input>
+						</div>
+					</div>
+					<%#= f.check_box :remember_me %> 
+
+					<div class="control-group">
+						<div class="control-label"><%= f.label ' ' %> </div>
+						<div class='controls'>
+							<%= f.submit 'Sign In' %>
+						</div>
+					</div>
+					<div class="control-group" align="center">
+					  <div class="control-label"><%= f.label ' ' %> </div>
+					    <div class='controls'>
+					     <div class="text-center"> <%= render "links" %></div>
+					    </div>
+					 </div>
+
+					<%#=# fields_for @war.options do |oForm| %>
+					
+				<!-- 	<table>
+					<tr>
+				 	  <td> <%#=# oForm.label :option, 'Add options for polling' %> </td>
+				  	 <td> <%#=# oForm.text_field :option %> </td>
+					</tr>
+					</table> -->
+				 	<%# eConfigurationnd %>
+
+				</form>
+			<% end %>
+		</div>
+	</div>
+</div>
+<%= render partial: 'layouts/footer' %> 
+
+
+
