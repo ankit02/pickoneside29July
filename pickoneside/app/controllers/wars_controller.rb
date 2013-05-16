@@ -144,12 +144,11 @@ class WarsController < ApplicationController
 
 		end		
 	end
-	
+
 	def viewAll
-		puts "sdsadasdsadasdsadsdsds"
-		debugger
-		@wars = War.all
-		debugger
+		
+		@wars = War.paginate(:page => params[:page], :per_page => 10).
+		where("user_id = ?", current_user.id)		
 
 	end
 
