@@ -143,16 +143,17 @@ class WarsController < ApplicationController
 		searchByCategory(params[:post][:category_id])
 
 	end
+	end
 
 	def viewAll
-		puts "sdsadasdsadasdsadsdsds"
+		#puts "sdsadasdsadasdsadsdsds"
 		debugger
-		@wars = War.all
-		debugger
+		 @wars = War.all
+		# debugger
 
-	end
+	end 
 		
-	end
+	
 
 	#def searchAction
 		

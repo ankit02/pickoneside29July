@@ -55,5 +55,17 @@ end
       end
     end
   end
+
+  def send_confirmation_instructions
+  # if invited_at.present?
+    self.confirmation_token = nil if reconfirmation_required?
+    @reconfirmation_required = false
+
+    generate_confirmation_token! if self.confirmation_token.blank?
+    # self.devise_mailer.confirmation_instructions(self).deliver
+    Devise::Mailer.confirmation_instructions(@user).deliver
+  # end
+end
+
 end
 

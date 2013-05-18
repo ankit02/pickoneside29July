@@ -20,4 +20,6 @@ class VotingsController < ApplicationController
 		redirect_to war_path(@voting.option.war)
 		
 	end
+
+	
 end

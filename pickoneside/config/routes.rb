@@ -45,7 +45,7 @@ Pickoneside::Application.routes.draw do
 
   #match "layouts/application" => "users#show", :as => 'user_show'
 
-
+  match "/layouts/_navigation" => 'comments#abcd'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
