@@ -55,8 +55,14 @@
 <!-- <div <div id="right-nav"> -->
   <% if user_signed_in? %>
   <li style="padding: 10px; top: 40px">
+<<<<<<< HEAD
     <%=link_to "View All Wars", {:controller => "wars", :action => "viewAll"}%>
     <%=link_to "sdsds", {:controller => "comments", :action => "abcd"} %> 
+=======
+    <%= link_to('View your wars', :action => 'viewAll', :controller => 'wars') %>
+
+    <%#= link_to('Dummy', :action => 'abcd', :controller => 'votings') %>
+>>>>>>> upstream/master
     </li> 
     <li style="padding: 10px 5px; font-size: 18px; text-shadow: 0.5px 1px #bbb; letter-spacing: 2px;"><%= current_user.username %>
     </li>
