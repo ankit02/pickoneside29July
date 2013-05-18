@@ -1,8 +1,9 @@
 <%= render partial: 'layouts/header' %> 
 
 <%#= form_for @war, :url => { :action => "viewAll" }, :html => { :method => :put } do |f| %>
+
 <%= form_tag :viewAll_wars do %>
-testahsah
+
 <div  class="row-fluid">
      <% if (@wars) %>
       <% if (@wars.empty?) %>
@@ -14,6 +15,7 @@ testahsah
  
       <% end %>
     <% else %>
+    test2
       <!-- <p style="text-align: center; padding: 5px;" >Use the search form to search for a war.</p> -->
     <% end %>
 </div>

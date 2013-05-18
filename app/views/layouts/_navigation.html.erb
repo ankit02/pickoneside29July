@@ -55,7 +55,10 @@
 <!-- <div <div id="right-nav"> -->
   <% if user_signed_in? %>
   <li style="padding: 10px; top: 40px">
-    <%= link_to('View all wars', :action => 'viewAll', :controller => 'wars') %>
+
+    <%= link_to('View your wars', :action => 'viewAll', :controller => 'wars') %>
+
+    <%#= link_to('Dummy', :action => 'abcd', :controller => 'votings') %>
     </li> 
     <li style="padding: 10px 5px; font-size: 18px; text-shadow: 0.5px 1px #bbb; letter-spacing: 2px;"><%= current_user.username %>
     </li>

@@ -142,17 +142,18 @@ class WarsController < ApplicationController
 		@wars = War.paginate(:page => params[:page], :per_page => 10).
 		searchByCategory(params[:post][:category_id])
 
+		end		
 	end
+	
 
 	def viewAll
-		puts "sdsadasdsadasdsadsdsds"
-		debugger
-		@wars = War.all
-		debugger
+
+		
+		@wars = War.paginate(:page => params[:page], :per_page => 10).
+		where("user_id = ?", current_user.id)		
 
 	end
-		
-	end
+
 
 	#def searchAction
 		
