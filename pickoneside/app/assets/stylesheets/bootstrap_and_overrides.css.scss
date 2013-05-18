@@ -471,4 +471,23 @@ img.pro-pic{
 	color:red !important;
 }
 
+.addthis_toolbox{
+	position:fixed !important;
+	width:250px !important;
+	right:20px !important;
+	bottom:10px !important;
+	padding: 10px;
+	opacity: 0.8;
+	border-radius: 3px;
+	background-color:#25383C;
+}
+.addthis_toolbox:hover{
+	
+	opacity:1;
+	background-color: rgba(221, 54, 34, 0.9);
+	background: rgba(221, 54, 34, 0.9);
+	color: rgba(221, 54, 34, 0.9);
+
+}
+
 @import "bootstrap-responsive";
