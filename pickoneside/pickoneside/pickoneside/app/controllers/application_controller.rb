@@ -16,5 +16,13 @@ class ApplicationController < ActionController::Base
       end
 
 	end
+
+  #   def viewAll
+  #   puts "sdsadasdsadasdsadsdsds"
+  #   debugger
+  #   @wars = War.all
+  #   debugger
+
+  # end
   
 end

@@ -1,0 +1,22 @@
+
+<div align="center" class="search-results offset2 span9" >
+	    <% @wars.each do |war| %>
+	    <a href="<%= war.id %>" method="show">
+			<div class="tab">
+			
+				<img src="<%= '/assets/ribbon.png' %>" class="ribbon"></img> <br><p class="ribbon-views"> <i class="icon-eye-open"></i> <br><%= war.hits.count %></p>
+			  	<%= image_tag war.war_image(:small), :class=>'polaroid-image' %>
+			  	<div class='polaroid-title'>
+			  	<%= war.topic %>
+			  	</div>
+
+			</div>
+		</a>
+		<% end %>
+	</div>
+</div>
+
+<style>
+
+
+</style>
