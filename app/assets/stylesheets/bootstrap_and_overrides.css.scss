@@ -39,8 +39,7 @@ table{
 	font-weight: bold !important;
 }
 .control-label img {
-/*position:relative;
-	*/
+/*position:relative; */
 }
 
 .control-group{
@@ -454,7 +453,7 @@ opacity:0.9 !important;
 -webkit-box-shadow:inset -1px -4px 54px #000000 !important;
 box-shadow:inset -1px -4px 54px #000000 !important;
 }
-/*
+
 ul.nav{
 	
 	list-style:none;
@@ -463,13 +462,32 @@ ul.nav{
 	div#left-nav, div#right-nav{
 
 	}
-}*/
+}
 
 img.pro-pic{
 	max-height:40px !important;  
 }
 .help-inline{
 	color:red !important;
+}
+
+.addthis_toolbox{
+	position:fixed !important;
+	width:250px !important;
+	right:20px !important;
+	bottom:10px !important;
+	padding: 10px;
+	opacity: 0.8;
+	border-radius: 3px;
+	background-color:#25383C;
+}
+.addthis_toolbox:hover{
+	
+	opacity:1;
+	background-color: rgba(221, 54, 34, 0.9);
+	background: rgba(221, 54, 34, 0.9);
+	color: rgba(221, 54, 34, 0.9);
+
 }
 
 @import "bootstrap-responsive";

@@ -24,4 +24,11 @@ class CommentsController < ApplicationController
 
 		redirect_to war_path(@comment.war)
 	end
+
+	def abcd
+
+		debugger
+	end
+
+	
 end

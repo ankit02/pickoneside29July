@@ -99,7 +99,7 @@ class WarsController < ApplicationController
 	def edit
 		@war = War.find(params[:id])
 		@categories = Category.all
-		#@options = "abcd"
+
 	end
 
 	def update
@@ -142,9 +142,18 @@ class WarsController < ApplicationController
 		@wars = War.paginate(:page => params[:page], :per_page => 10).
 		searchByCategory(params[:post][:category_id])
 
+		end		
 	end
+	
+
+	def viewAll
+
 		
+		@wars = War.paginate(:page => params[:page], :per_page => 10).
+		where("user_id = ?", current_user.id)		
+
 	end
+
 
 	#def searchAction
 		

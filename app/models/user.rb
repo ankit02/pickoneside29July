@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 
   # attr_accessible :title, :body
 
+  has_many :hits, :dependent => :delete_all
+  has_many :comments, :dependent => :delete_all
+  has_many :votings, :dependent => :delete_all
+
   validates :username, :presence => true, :uniqueness => true
 
   def user_image(size)
@@ -51,5 +55,17 @@ end
       end
     end
   end
+
+  def send_confirmation_instructions
+  # if invited_at.present?
+    self.confirmation_token = nil if reconfirmation_required?
+    @reconfirmation_required = false
+
+    generate_confirmation_token! if self.confirmation_token.blank?
+    # self.devise_mailer.confirmation_instructions(self).deliver
+    Devise::Mailer.confirmation_instructions(@user).deliver
+  # end
+end
+
 end
 
