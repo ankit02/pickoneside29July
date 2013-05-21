@@ -1,13 +1,9 @@
 <%= render partial: 'layouts/header' %> 
 
 <%#= form_for @war, :url => { :action => "viewAll" }, :html => { :method => :put } do |f| %>
-<<<<<<< HEAD
-<%= form_tag :viewAll_wars, :method => :get do %>
-testahsah
-=======
+
 <%= form_tag :viewAll_wars do %>
 
->>>>>>> upstream/master
 <div  class="row-fluid">
      <% if (@wars) %>
       <% if (@wars.empty?) %>

@@ -144,7 +144,7 @@ class WarsController < ApplicationController
 
 		end		
 	end
-	end
+	
 
 	def viewAll
 
