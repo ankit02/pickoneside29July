@@ -57,7 +57,7 @@
 		
 		<% if !@war.comments.empty? %>
 			<div class="box-it">
-					<div class="row-fluid">
+					<div class="row-fluid" style="max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
 						<%= render partial: 'comment', collection: @war.comments %>
 					</div>
 
