@@ -16,7 +16,23 @@ class War < ActiveRecord::Base
 
   validates_presence_of :description
   validates :topic, :presence => true, :uniqueness => true
+  # validates :war_pic, :file_size => { 
+  #     :maximum => 1000000 
+  #   }
+
+  # validate :image_size
+
+  # def image_size
+  #   # errors.add(:field,'error message')
+  #     errors[:war] << "Image size cannot be greater than 1MB." if :war_pic.size < 10.megabytes
+        
+  #   debugger
+  # end
+
   
+  # def file_size_validation
+  #   errors[:war] << "should be less than 1MB" if war_pic.size > 1.megabytes
+  # end
 
   def self.search(search)
   search.blank? ? [] : all(:conditions => ['topic LIKE ?', "%#{search.strip}%"])
