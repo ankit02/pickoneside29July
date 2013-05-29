@@ -12,7 +12,7 @@ class War < ActiveRecord::Base
 
   auto_strip_attributes :topic, :description, :options_test
 
-  has_attached_file :war_pic, :styles => {:thumb => "800X500>", :small => "100X100>"}, :default_url => 'assets/default_#{size}.jpg'
+  has_attached_file :war_pic, :styles => {:thumb => "800X500>", :small => "100X100>"}, :default_url => 'assets/default_#{size}.png'
 
   validates_presence_of :description
   validates :topic, :presence => true, :uniqueness => true
@@ -48,7 +48,7 @@ class War < ActiveRecord::Base
   if war_pic.present?
     return war_pic.url(size)
   else
-    return "/assets/default_#{size}.jpg"
+    return "/assets/default_#{size}.png"
   end
 
 
