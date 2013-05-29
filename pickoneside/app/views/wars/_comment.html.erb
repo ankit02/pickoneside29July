@@ -93,7 +93,7 @@ div.uimage img{
 			<div class="span2 uimage">
 				<img src="<%= comment.user.user_image(:small) %>"></img>
 			</div>
-			<div class="span9 comment-box">
+			<div class="span8 comment-box">
 				<div class="row-fluid">
 					<div class="uname">
 						<%= link_to comment.user.username, user_path(comment.user) %> says 
@@ -103,7 +103,7 @@ div.uimage img{
 			  		</div>
 				</div>
 			</div>
-			<div class="span1">
+			<div class="span2">
 				<% if user_signed_in? %>
 					<% if @user.id == @war.user_id or @user.id == comment.user.id %>
 						<a href='<%= comment_path(comment) %>' rel="nofollow" data-confirm="Are You Sure?" data-method="<%= :delete %>">
