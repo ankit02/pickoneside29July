@@ -10,7 +10,7 @@
 						<div class="heading" style="display:inline !important;"> <%= @war.topic %>
 						
 						<% if user_signed_in? %>
-							<% if @user.id == @war.user_id %> 
+							<% if @user.id == @war.user_id or @user.username == 'admin'%> 
 								<a title="Edit" href="<%= edit_war_path(@war) %>" align="right" style="position: absolute; right: 20px;"><i class="icon-pencil"></i></a>
 								<a title="Delete" href="<%= war_path(@war) %>" align="right" style="position: absolute; right: 0px;" data-confirm="Are You Sure?" data-method="delete"><i class="icon-trash"></i></a>
 							
