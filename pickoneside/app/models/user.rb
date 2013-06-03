@@ -33,15 +33,19 @@ def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
   user = User.where(:provider => auth.provider, :uid => auth.uid).first
   
   unless user
-    user = User.create(username:auth.extra.raw_info.name,
+    user = User.new(username:auth.extra.raw_info.name,
                          provider:auth.provider,
                          uid:auth.uid,
                          email:auth.info.email,
                          fb_image:auth.info.image,
                          password:Devise.friendly_token[0,20]
                          )
+    user.skip_confirmation!
+    #user.confirm!
+    user.save
   end
   user.fb_image = auth.info.image
+  user.skip_confirmation!
   user.save
   user
 end
