@@ -75,6 +75,18 @@ Pickoneside::Application.configure do
   }
 }
 
+config.action_mailer.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :address => "smtp.gmail.com",
+  :port => 587,
+  :authentication => :plain,
+  :domain => 'intuzion.com',
+  :user_name => 'admin@intuzion.com',
+  :password => 'a1ntu9466',
+  :authentication       => 'plain',
+  :enable_starttls_auto => true
+}
+
 Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
     Paperclip::Attachment.default_options[:path] = '/:class/:attachment/:id_partition/:style/:filename'
 end
