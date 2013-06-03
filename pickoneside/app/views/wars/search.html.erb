@@ -18,13 +18,13 @@
 
     <% if (@wars) %>
       <% if (@wars.empty?) %>
-        <p style="text-align: center; padding: 5px;">No wars found.</p>
+        <p style="text-align: center; padding: 5px;">No debates found.</p>
       <% else %>
     	 <%= render :partial => 'wars/search_results' %>
           <%= will_paginate @wars %>
       <% end %>
       <% else %>
-         <p style="text-align: center; padding: 5px;">Use the search form to search for a war.</p>
+         <p style="text-align: center; padding: 5px;">Use the search form to search for a debate.</p>
     <% end %>
 <% end %>
 <%= render partial: 'layouts/footer' %> 

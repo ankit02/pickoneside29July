@@ -19,9 +19,9 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<div class="control-label"><%= f.label :war_pic %> </div>
+			<div class="control-label"><%= f.label :war_pic, 'Photo' %> </div>
 			<div class='controls'>
-				<%=  f.file_field :war_pic  %>
+				<%=  f.file_field :war_pic, :max_size => 1000  %>
 			</div>
 		</div>
 		<div class="control-group">

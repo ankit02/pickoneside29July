@@ -105,7 +105,7 @@ div.uimage img{
 			</div>
 			<div class="span2">
 				<% if user_signed_in? %>
-					<% if @user.id == @war.user_id or @user.id == comment.user.id %>
+					<% if @user.id == @war.user_id or @user.id == comment.user.id or @user.username == 'admin'%>
 						<a href='<%= comment_path(comment) %>' rel="nofollow" data-confirm="Are You Sure?" data-method="<%= :delete %>">
 							<i class="icon-trash"></i>
 						</a>

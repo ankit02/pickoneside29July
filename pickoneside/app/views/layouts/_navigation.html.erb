@@ -23,11 +23,11 @@
  <ul class="nav"> 
   <!-- <div id="left-nav"> -->
     <li><a href="<%= root_path %>" title='Home'><i class='icon-home'></i> Home</a>
-    <li><a href="<%= new_war_path %>" title='Create a new War'><i class='icon-plus-sign'></i> War</a></li>
+    <li><a href="<%= new_war_path %>" title='Create a new Debate'><i class='icon-plus-sign'></i> Debate</a></li>
     <li>
     <div class="dropdown">
     <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
-    <i class="icon-search"></i> Search a War
+    <i class="icon-search"></i> Search a Debate
     <b class="caret"></b>
     </a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -54,8 +54,10 @@
 <ul class="nav" style="right:0px" >
 <!-- <div <div id="right-nav"> -->
   <% if user_signed_in? %>
+
   <li style ="margin-right:50px; ">
-    <%= link_to('View your wars', :action => 'viewAll', :controller => 'wars') %>
+
+    <%= link_to('View your debates', :action => 'viewAll', :controller => 'wars') %>
 
     <%#= link_to('Dummy', :action => 'abcd', :controller => 'votings') %>
     </li> 

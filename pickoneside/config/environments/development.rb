@@ -36,18 +36,26 @@ Pickoneside::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
 
-
+   
+Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+config.action_mailer.delivery_method = :smtp
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.smtp_settings = {
   :address => "smtp.gmail.com",
   :port => 587,
   :authentication => :plain,
-  :domain => ENV['GMAIL_SMTP_USER'],
-  :user_name => ENV['GMAIL_SMTP_USER'],
-  :password => ENV['GMAIL_SMTP_PASSWORD'],
+  :domain => 'intuzion.com',
+  :user_name => 'admin@intuzion.com',
+  :password => 'a1ntu9466',
+  :authentication       => 'plain',
+  :enable_starttls_auto => true
 }
+
 end
