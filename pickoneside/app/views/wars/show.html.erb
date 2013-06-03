@@ -55,7 +55,7 @@
 		
 		<% if !@war.comments.empty? %>
 			<div class="box-it">
-					<div class="row-fluid" style="max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
+					<div class="row-fluid scrollme" style="max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
 						<%= render partial: 'comment', collection: @war.comments %>
 					</div>
 
@@ -97,6 +97,16 @@
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51920bd503ff7de6"></script>
 <!-- AddThis Button END -->
+<script>
+
+        $(document).ready(function(){
+            $(".scrollme").mCustomScrollbar({
+            	
+				theme:"light"
+            });
+            $(".scrollme").jScrollPane();
+        });
+</script>
 
 <%= render partial: 'layouts/footer' %> 
 

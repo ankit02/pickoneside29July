@@ -1,16 +1,48 @@
-<h2>Change your password</h2>
-
+<%= render partial: 'layouts/header' %> 
+<div class="offset3 span9" >
+  <div class='span5'>
+    <div class="row-fluid">
+      <div class="box-it">
+        <div align="center">
+          <div class="heading" style="display:inline !important;"> 
+          	Change your password
+          </div>
+        </div>
+      </div><br/>
+      <div class="row-fluid">
+        <div class="box-it">          	
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password %></div>
+  				<form class="form-horizontal">
+	                <div class="control-group">
+		                <div class="control-label"><%= f.label :password, "New password" %></div>
+		                <div class='controls'>
+  						<%= f.password_field :password %></div>
+                	</div>
+                	<div class="control-group">
+		                <div class="control-label"><%= f.label :password_confirmation, "Confirm new password" %></div>
+		                <div class='controls'><%= f.password_field :password_confirmation %></div>
+		            </div>
+		            <div class="control-group">
+		                <div class="control-label"><%= f.label ' ' %> </div>
+		                <div class='controls'>
+							<%= f.submit "Change my password" %>
+		                </div>
+		            </div>
+		              <div class="control-group" align="center">
+		              <div class="control-label"><%= f.label ' ' %> </div>
+		                <div class='controls'>
+		                  <%= render "links" %>
+		                </div>
+		              </div>
+</form>
+        	<% end %>
+        </div>
+  	</div>
+</div>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
-
-<%= render "links" %>
+</div>
+</div>
+<%= render partial: 'layouts/footer' %> 
