@@ -22,11 +22,15 @@
 
 </head>
 <body>
-  <% if alert==nil %>
-  <% else %>
-   <p class="notice"><%#= notice %></p>
-     <p class="alert"><%= alert %></p>
-     <% end %>
+  <% if alert==nil%>
+    <% if notice==nil%>
+    <% else %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+  <% else %>  
+    <p class="alert"><%= alert %></p>
+  <% end %>
+
 	 <header>
 <!--        <nav class="navbar-inner">
         <div class="container-fluid">  -->
