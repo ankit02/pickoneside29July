@@ -1,12 +1,44 @@
-<h2>Resend confirmation instructions</h2>
+<%= render partial: 'layouts/header' %> 
+<div class="offset3 span9" >
+  <div class='span6'>
+    <div class="row-fluid">
+      <div class="box-it">
+        <div align="center">
+          <div class="heading" style="display:inline !important;"> 
+            Resend Confirmation Instructions
+          </div>
+        </div>
+      </div><br/>
+      <div class="row-fluid">
+        <div class="box-it">
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+		<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+		  <%= devise_error_messages! %>
+				<div class="control-group">
+                  <div class="control-label"><%= f.label :email %> </div>
+                  <div class='controls'>
+                    <%= f.email_field :email %>
+                  </div>
+                </div>
+                  <div class="control-group">
+		                <div class="control-label"><%= f.label ' ' %> </div>
+		                <div class='controls'>
+							<%= f.submit "Resend confirmation instructions" %>
+		                </div>
+		            </div>
+		              <div class="control-group" align="center">
+		              <div class="control-label"><%= f.label ' ' %> </div>
+		                <div class='controls'>
+		                  <%= render "links" %>
+		                </div>
+		              </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+</form>
+        	<% end %>
+        </div>
+  	</div>
+</div>
 
-  <div><%= f.submit "Resend confirmation instructions" %></div>
-<% end %>
-
-<%= render "links" %>
+</div>
+</div>
+<%= render partial: 'layouts/footer' %> 
