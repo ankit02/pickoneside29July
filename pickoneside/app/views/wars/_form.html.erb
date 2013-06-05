@@ -16,7 +16,7 @@
 		<div class="control-group">
 			<div class="control-label"><%= f.label :description %> </div>
 			<div class='controls'>
-				<%= f.text_area :description, :cols => 20, :rows => 10,:required=>'true'  %>
+				<%= f.text_area :description, :cols => 20, :rows => 10,:required=>'true', :maxlength=>1000;  %>
 			</div>
 		</div>
 		<div class="control-group">
@@ -40,13 +40,14 @@
 			<div class='controls'>
 				<%= f.text_field :options_test  %>
 			</div>
+			</div>
 			<% end %>
 			
-		</div>
+		
 		<div class="control-group">
 			<div class="control-label"><%= f.label ' ' %> </div> 
 			<div class='controls'>
-				<%= f.submit, :class=>'btn btn-inverse' %>
+				<%= f.submit "Submit", :class=>'btn btn-inverse' %>
 			</div>
 		</div>
 
