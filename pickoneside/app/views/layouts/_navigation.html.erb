@@ -10,92 +10,112 @@
  <%#= link_to " WAR", new_war_path, :class=>'icon-plus-sign', :title=>'Create a new War' %>
 
 <!-- </span> -->
-
-<div>
-<div style="float:left;"> 
-<!-- 
- <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-caret-down"></span>
- </a>
- <a class="brand" href="<%#= root_path %>"><%#= image_tag("/assets/header.png", :border => 0, :size => "250x42" ) %>
- </a>  -->
- <!-- <div class="nav-collapse collapse"> -->
- <ul class="nav"> 
-  <!-- <div id="left-nav"> -->
-    <li><a href="<%= root_path %>" title='Home'><i class='icon-home'></i> Home</a>
-    <li><a href="<%= new_war_path %>" title='Create a new Debate'><i class='icon-plus-sign'></i> Debate</a></li>
-    <li>
-    <div class="dropdown">
-    <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
-    <i class="icon-search"></i> Search a Debate
-    <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    <li><%= link_to('By Category', searchByCategory_wars_path) %> </li>
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
     
-    <li><%= link_to('By Topic', search_wars_path) %></li>
-   </ul>
+      <%= link_to image_tag("/assets/header.png", :border => 0, :size => "250x42" ), root_path, :class=>"brand hidden-desktop" , :style=>"padding:0px;" %>
+      <!-- a class="brand" href="#">Pickoneside</a> -->
+
+        <div class="nav-collapse collapse">
+        <ul class="nav " id="left-nav">
+                <li><a href="<%= root_path %>" title='Home'><span><i class='icon-home'></i> Home</span></a>
+                  <li><a href="<%= new_war_path %>" title='Create a new Debate'><span><i class='icon-plus-sign'></i> <span class="hidden-desktop"> Create New </span>Debate</span></a></li>
+                  <li  class="dropdown">
+                  <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
+                  <i class="icon-search"></i> <!-- <span class="visible-desktop"> -->Search a Debate<!-- </span> -->
+                   <span class="caret"></span> 
+                  </a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><%= link_to('By Category', searchByCategory_wars_path) %> </li>
+                  
+                  <li><%= link_to('By Topic', search_wars_path) %></li>
+                 </ul>
+                  
+                </li>
+                
+              </ul>
+                <%= link_to image_tag("/assets/header.png", :border => 0, :size => "250x42" ), root_path, :class=>"brand visible-desktop" , :style=>"padding:0px; margin-left: 100px;" %>
+                
+                <ul  class="nav" id="right-nav">
+            <% if user_signed_in? %>
+            <li><%= link_to('View your wars', :action => 'viewAll', :controller => 'wars') %></li>
+
+              <li class="dropdown">
+                  <a class="dropdown-toggle" id="dUser" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html"><span  style="padding: 10px 10px; text-shadow: 0.5px 1px #bbb; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-left: 5px;" ><%= current_user.username %></span><%= image_tag current_user.user_image(:small) %><span class="caret"></span>    
+                  </a>
+                  <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dUser" style="min-width:115px;z-index:99999;opacity:1;">
+                    <li><%= link_to "View Profile", user_path(current_user) %></li>
+                    <% if current_user.provider != 'facebook' %>
+                      <li>
+                      <%= link_to('Edit account', edit_user_registration_path) %>
+                      </li>
+                    <% end %>
+                    <li>
+                    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+                    </li>
+                 
+                  </ul>
+               
+              </li>
+             <% else %>
+                  <li >
+                  <div  class="btn-group" id="fbconnect" style="margin-left:10px;">
+                    <a href="<%= user_omniauth_authorize_path(:facebook) %>" class="btn visible-desktop btn-primary" style="font-size: 30px;font-weight: bolder;">f</a>
+                    <a href="<%= user_omniauth_authorize_path(:facebook) %>"  class="btn btn-primary">Connect With Facebook</a>
+                  </div>
+                <%#= link_to "okay", user_omniauth_authorize_path(:facebook) %>
+                </li>
+                 <li >
+                <%= link_to('Sign up', new_user_registration_path)  %>
+                </li>
+                <li >
+                <%= link_to('Login', new_user_session_path)  %>
+                </li>
+                <% end %>
+                <li  class="dropdown hidden-desktop" >
+                  <a class="dropdown-toggle" id="latestwars" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
+                  <!-- <span class="visible-desktop"> -->Latest Wars<!-- </span> -->
+                  </a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                      <% @warsLatestNav.each do |war| %>
+
+                      <li id="abcd">
+                        <%= link_to war.topic, war_path(war) %>
+                      </li>
+
+                      <% end %>
+                  </ul>
+                </li>
+                 <li  class="dropdown hidden-desktop" >
+                  <a class="dropdown-toggle" id="hotwars" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html">
+                  <!-- <span class="visible-desktop"> -->Hottest Wars<!-- </span> -->
+                  </a>
+                  <ul id = "warsHotList" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
+                    <% @warsHot.each do |war| %>
+
+                    <li>
+                      <%= link_to war.topic, war_path(war) %>
+                    </li>
+
+                    <% end %>
+
+                  </ul>
+                </li>
+               
+          </ul>
+        </div>
+
+ 
     </div>
-  </li>
-<!-- </div>
- -->
-  </ul>
-
+  </div>
 </div>
 
-
- <span style='top: 40px;margin-left: 10%;'>
-  <%= link_to image_tag("/assets/header.png", :border => 0, :size => "250x42" ), root_path %>
-</span> 
-
-
-<div style="float:right">
-    
-<ul class="nav" style="right:0px" >
-<!-- <div <div id="right-nav"> -->
-  <% if user_signed_in? %>
-
-  <li style ="margin-right:50px; ">
-
-    <%= link_to('View your debates', :action => 'viewAll', :controller => 'wars') %>
-
-    <%#= link_to('Dummy', :action => 'abcd', :controller => 'votings') %>
-    </li> 
-    <li style="padding: 10px 5px; font-size: 18px; text-shadow: 0.5px 1px #bbb; letter-spacing: 2px;"><%= current_user.username %>
-    </li>
-    <li>
-      <div class="dropdown" style="max-height:40px"> 
-        <a class="dropdown-toggle" id="dUser" role="button" data-toggle="dropdown" data-target="#" href="/navigation.html"><%= image_tag current_user.user_image(:small), :class=>"pro-pic" %><b class="caret"></b>    
-        </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dUser" style="min-width:115px;z-index:99999;opacity:1; right:0px;">
-          <li><%= link_to "View Profile", user_path(current_user) %></li>
-          <% if current_user.provider != 'facebook' %>
-            <li>
-            <%= link_to('Edit account', edit_user_registration_path) %>
-            </li>
-          <% end %>
-          <li>
-          <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
-          </li>
-       
-        </ul>
-      </div>
-    </li>
-   <% else %>
-      <li style ="margin-left:50px; float:right;">
-      <%= link_to('Login', new_user_session_path)  %>
-      </li>
-      <li style ="margin-left:50px; float:right;">
-      <%= link_to('Sign up', new_user_registration_path)  %>
-      </li>
-      <li style ="float:right;">
-      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-      </li>
-    <% end %>
-<!-- </div> -->
-</ul>
-
-</div>
-</div>
 
 

@@ -1535,7 +1535,7 @@ a.menu:after, .dropdown-toggle:after {
   width: 0;
   height: 0;
   display: inline-block;
-  content: "&darr;";
+ /* content: "&darr;";*/
   text-indent: -99999px;
   vertical-align: top;
   margin-top: 8px;
@@ -2465,3 +2465,4 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 }
+*/

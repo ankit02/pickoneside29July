@@ -60,7 +60,7 @@
 		
 		<% if !@war.comments.empty? %>
 			<div class="box-it">
-					<div class="row-fluid scrollme" style="max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
+					<div class="row-fluid scrollme" style="max-height: 400px; overflow-y: scroll; overflow-x: hidden;" id="comment-box">
 						<%= render partial: 'comment', collection: @war.comments %>
 					</div>
 
@@ -77,7 +77,6 @@
 			</div>
 	</div>
 </div>
-
 
 <!-- AddThis Button BEGIN -->
 <!-- <div class="addthis_toolbox addthis_default_style ">

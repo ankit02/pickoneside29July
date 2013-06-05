@@ -2,6 +2,7 @@
 <%= simple_form_for @war, :validate => true do |f| %>
 
     <div class="box-it">
+    
 		<div class="control-group">
 			<div class="control-label"><%= f.label :topic %></div>
 			<div class='controls'>
@@ -45,9 +46,10 @@
 		<div class="control-group">
 			<div class="control-label"><%= f.label ' ' %> </div> 
 			<div class='controls'>
-				<%= f.submit %>
+				<%= f.submit, :class=>'btn btn-inverse' %>
 			</div>
 		</div>
+
 	</div>
 	
 	</form>

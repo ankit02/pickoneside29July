@@ -3,6 +3,8 @@
 <head>
 
   <title>Pickoneside</title>
+ <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   
   <%= stylesheet_link_tag    "/assets/jquery.jscrollpane.css"%>
@@ -22,7 +24,15 @@
 
 </head>
 <body>
-  <% if alert==nil%>
+
+<!-- 
+	 <header> -->
+<!--        <nav class="navbar-inner">
+        <div class="container-fluid">  -->
+ 
+
+    <%= render 'layouts/navigation' %>
+    <% if alert==nil%>
     <% if notice==nil%>
     <% else %>
       <p class="notice"><%= notice %></p>
@@ -31,21 +41,9 @@
     <p class="alert"><%= alert %></p>
   <% end %>
 
-	 <header>
-<!--        <nav class="navbar-inner">
-        <div class="container-fluid">  -->
-     <div class="navbar">
-     <div class="navbar-inner">
-      <div class="container">  
-
-    <%= render 'layouts/navigation' %>
-  
-       </div>
-      </div>
-    </div> 
 <!--         </div>
       </nav> -->
-    </header>
+   <!--  </header> -->
 
 <%= render "layouts/sidebar" %>
 

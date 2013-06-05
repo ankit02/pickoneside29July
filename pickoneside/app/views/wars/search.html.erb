@@ -5,16 +5,17 @@
 <%= render partial: 'layouts/header' %> 
 <%= form_tag :search_wars, :method => :get do %>
   <div  class="row-fluid">
-    <div class="offset3 span6">
+    <div class="offset4 span6">
       <div class="control-group">
-        <div class="control-label"><%= label_tag  'Topic' %>  
-        </div>
+        <!-- <div class="control-label"><%= label_tag  'Topic' %>  
+        </div> -->
         <div class="controls">     
-          <%= text_field_tag :search, params[:search] %> <%= submit_tag "Search", :name => nil, :style=>"margin-left:15px;" %>
+          <input id="search" name="search" type="text" placeholder="Topic">
+          <%= submit_tag "Search" , :class=>'btn btn-inverse', :name => nil, :style=>"margin-left:15px;" %>
         </div>
       </div>
     </div>
-  </div>
+ 
 
     <% if (@wars) %>
       <% if (@wars.empty?) %>
@@ -26,6 +27,7 @@
       <% else %>
          <p style="text-align: center; padding: 5px;">Use the search form to search for a debate.</p>
     <% end %>
+     </div>
 <% end %>
 <%= render partial: 'layouts/footer' %> 
 

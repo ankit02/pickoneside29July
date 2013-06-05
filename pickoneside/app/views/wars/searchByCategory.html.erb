@@ -8,7 +8,7 @@
         <div class="control-label"><%=  label_tag 'Category:' %> 
         </div>
         <div class="controls">     
-          <%= collection_select :post,:category_id, Category.all, :id, :topic, :prompt => true %> <%= submit_tag "Search", :name => nil, :style=>"margin-left:15px;" %>
+          <%= collection_select :post,:category_id, Category.all, :id, :topic, :prompt => true %> <%= submit_tag "Search", :name => nil, :style=>"margin-left:15px;", :class=>'btn btn-inverse' %>
         </div>
       </div>
     </div>
