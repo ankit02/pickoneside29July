@@ -7,7 +7,9 @@
 
         <div class="span3" style="display:inline-block; vertical-align:middle;">
 <!--         <div style="width:50%; margin-left:20px;"> -->
-      
+ <!--      <div class="btn-group" data-toggle="buttons-radio">
+ -->
+
         	<% @options.all.each do |o| %>
          
             <% if user_signed_in? %>
@@ -15,8 +17,8 @@
               <%#= fo.radio_button :option_id, o.id %><%#= fo.label :option_id, o.option %>
               <div class="row-fluid">
                 <div class="span3">
-                  <input type="radio" id="voting_option_id_<%= o.id %>"  style="text-align:right; margin-top:8px;" name="voting[option_id]" value="<%= o.id %>">
-                  </input>
+<!--                     <input type="text"  id="voting_option_id_<%= o.id %>"  style="text-align:right; margin-top:8px;" name="voting[option_id]" class="btn btn-primary" value="<%= o.id %>"><%= o.option %></input> -->
+                  <input type="radio" id="voting_option_id_<%= o.id %>"  style="text-align:right; margin-top:8px;" name="voting[option_id]" value="<%= o.id %>"/>
                 </div>
                   
                 <div class="span8"> 
@@ -33,12 +35,13 @@
             <% end %>
 
           <% end %>
+        <!--  </div> -->
         <br/>
         
         <% if user_signed_in? %>
           <% if @voted == false  %>
             <div class="row-fluid">
-              <%= fo.submit 'Vote' %>
+              <%= fo.submit 'Vote', :class=>'btn btn-inverse' %>
             </div>
           <% else %>
             <div class="row-fluid">
@@ -57,7 +60,7 @@
           </div>
         </div>
       <% end %>
-    
+  
     <% end %>
 
   </div>

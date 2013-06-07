@@ -74,6 +74,23 @@ Pickoneside::Application.configure do
     
   }
 }
+config.action_mailer.default_url_options = { :host => 'www.pickoneside.com' }
+
+Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+config.action_mailer.delivery_method = :smtp
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.smtp_settings = {
+  :address => "smtp.gmail.com",
+  :port => 587,
+  :authentication => :plain,
+  :domain => 'intuzion.com',
+  :user_name => 'admin@intuzion.com',
+  :password => 'a1ntu9466',
+  :authentication       => 'plain',
+  :enable_starttls_auto => true
+}
 
 Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
     Paperclip::Attachment.default_options[:path] = '/:class/:attachment/:id_partition/:style/:filename'

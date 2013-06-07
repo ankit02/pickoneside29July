@@ -68,6 +68,8 @@ gem 'client_side_validations-simple_form'
 
 gem 'aws-sdk'
 
+gem 'tlsmail'
+
 group :production do
   gem 'pg'
 end

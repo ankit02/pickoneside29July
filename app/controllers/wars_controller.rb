@@ -15,28 +15,39 @@ class WarsController < ApplicationController
 		@war = War.new(params[:war])
 		@user= User.find(current_user.id)
 		@war.user_id = @user.id
-		@war.save
+
+		# if @war.war_pic_file_size > 1000000
+
+		# 	@errors_custom = "Image size cannot be greater than 1MB."
+
+		# 	redirect_to new_war_path
+		# 	debugger
+		# else
+			# debugger
+			@war.save
 		#session[:abc] = 
 
-		@option_comma = params[:war][:options_test]
+			@option_comma = params[:war][:options_test]
 
-		foo = @option_comma.split(',')
+			foo = @option_comma.split(',')
 
-		foo.each do |optionObj|
+			foo.each do |optionObj|
 
-			opt = Option.new
-			opt.option = optionObj.strip
-			opt.war_id = @war.id
+				opt = Option.new
+				opt.option = optionObj.strip
+				opt.war_id = @war.id
 
-			opt.save
+				opt.save
 			
-		end		
+			end
+				
 
 		#flash.notice = "War '#{@war.topic}' created successfully."
 		#respond_to do |format|
-		if @war.save
-		redirect_to war_path(@war)
-		else
+			if @war.save
+				redirect_to war_path(@war)
+			else
+		# end
 			#@categories = Category.all
 		#render new_war_path(@war)
 			

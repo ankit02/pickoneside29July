@@ -13,7 +13,7 @@ Pickoneside::Application.routes.draw do
 
   #match "/layouts/_navigation" => 'wars#search', :as => 'search'
   
-  #match "/layouts/_navigation" => 'wars#viewAll', :as => 'viewAll'
+  match "/layouts/_navigation" => 'wars#viewAll', :as => 'viewAll'
 
   resources :wars, except: [:index] do
     collection do

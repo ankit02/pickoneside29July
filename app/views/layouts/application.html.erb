@@ -3,35 +3,47 @@
 <head>
 
   <title>Pickoneside</title>
+ <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", :media => "all" %>
-
+  
+  <%= stylesheet_link_tag    "/assets/jquery.jscrollpane.css"%>
+  <%= javascript_include_tag "/assets/jquery.jscrollpane.min.js" %>
+  <!-- ------------------ mCustomScrollbar  -------------- -->
+  <%#= stylesheet_link_tag    "/assets/jquery.mCustomScrollbar.css"%>
+  <%#= javascript_include_tag "/assets/jquery.mCustomScrollbar.concat.min.js" %>
+  <%#= javascript_include_tag "/assets/jquery.mousewheel.js" %>
+  <%#= javascript_include_tag "/assets/jquery.mousewheel.min.js" %>
+  <%#= javascript_include_tag "/assets/jquery.mCustomScrollbar.js" %>
+  <%#= javascript_include_tag "/assets/jquery.mCustomScrollbar.min.js" %> 
+  <!-- ------------------ mCustomScrollbar  -------------- -->
   <%#= javascript_include_tag "/assets/jquery.min.js", "rails.validations"  %>
     <%= javascript_include_tag "application", "rails.validations.simple_form" %>
-  <link rel="icon" type="image/ico" href="/assets/favicon.png"/>
+  <link rel="icon" type="image/ico" href="/assets/default_profilepic_thumb.png"/>
   <%= csrf_meta_tags %>
 
 </head>
 <body>
-  <% if alert==nil %>
-  <% else %>
-   <p class="notice"><%#= notice %></p>
-     <p class="alert"><%= alert %></p>
-     <% end %>
-	 <header>
+
+<!-- 
+	 <header> -->
 <!--        <nav class="navbar-inner">
         <div class="container-fluid">  -->
-     <div class="navbar">
-     <div class="navbar-inner">
-      <div class="container">  
+ 
 
     <%= render 'layouts/navigation' %>
-  
-       </div>
-      </div>
-    </div> 
+    <% if alert==nil%>
+    <% if notice==nil%>
+    <% else %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+  <% else %>  
+    <p class="notice"><%= alert %></p>
+  <% end %>
+
 <!--         </div>
       </nav> -->
-    </header>
+   <!--  </header> -->
 
 <%= render "layouts/sidebar" %>
 
