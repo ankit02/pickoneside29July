@@ -17,11 +17,9 @@ Pickoneside::Application.routes.draw do
 
   resources :wars, except: [:index] do
     collection do
-
-      get 'search'
-      get 'searchByCategory'
-
       get 'viewAll'
+      get 'search'
+      get 'searchByCategory'    
 
     end
   end 
