@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130603093328) do
 
   create_table "categories", :force => true do |t|
     t.string   "topic"
+    t.integer  "war_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -95,12 +96,12 @@ ActiveRecord::Schema.define(:version => 20130603093328) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.string   "description"
-    t.integer  "category_id"
-    t.integer  "user_id"
     t.string   "war_pic_file_name"
     t.string   "war_pic_content_type"
     t.integer  "war_pic_file_size"
     t.datetime "war_pic_updated_at"
+    t.integer  "category_id"
+    t.integer  "user_id"
   end
 
   add_index "wars", ["category_id"], :name => "wars_category_id_fk"
